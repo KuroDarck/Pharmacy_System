@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="systemView" prefHeight="600.0" prefWidth="1208.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kurodarck.pharmacysystem.controller.SystemViewController">
+    <children>
+        <Pane layoutY="100.0" prefHeight="580.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+            <children>
+                <Pane fx:id="Product" layoutY="10.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelProduct" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Product" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="32.0" fitWidth="44.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/box.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Purchace" layoutY="73.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelPurchace" layoutX="-1.0" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Purchase" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitWidth="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/purchase.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Sales" layoutY="133.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="Labelsales" layoutX="-1.0" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="   Sales" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/sales.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Customer" layoutY="193.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelCustomer" layoutX="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Customer" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="35.0" fitWidth="36.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/customer.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Emproyee" layoutY="255.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelEmproyee" layoutX="-1.0" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Employee" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="35.0" fitWidth="32.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/employee.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Suplayer" layoutY="316.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelSuplayer" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Suppliyer" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="35.0" fitWidth="40.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/supplier.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Category" layoutY="381.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelCategory" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Category" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="37.0" fitWidth="36.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/categories.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Report" layoutY="439.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelReport" layoutY="-1.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Bussines Report" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="33.0" fitWidth="35.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/business-report.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="Setting" layoutY="489.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;">
+                    <children>
+                        <Label fx:id="LabelSetting" layoutY="4.0" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #121929;-fx-cursor: hand;" text="    Setting" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe Print Bold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="36.0" fitWidth="35.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../Image/settings.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="Logo" prefHeight="101.0" prefWidth="200.0">
+            <children>
+                <ImageView fx:id="IconFarmaci" layoutX="36.0" layoutY="-21.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../Image/farmacia.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D />
+                    </viewport>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="200.0" prefHeight="101.0" prefWidth="1008.0" style="-fx-background-color: #121929;">
+            <children>
+                <Label layoutX="48.0" prefHeight="100.0" prefWidth="364.0" text="NATURAL LIFE PHARMACY" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe Print" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="UserPhoto" layoutX="630.0" layoutY="14.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0">
+                    <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../Image/man.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="exitBotton" layoutX="862.0" layoutY="35.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Exit">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <TabPane layoutX="200.0" layoutY="100.0" prefHeight="580.0" prefWidth="1008.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tapProduct" style="-fx-background-color: #FFFFFF;" text="Product">
+                    <Pane style="-fx-background-color: #B2DFDB;">
+                        <Pane layoutX="55.0" layoutY="14.0" prefHeight="250.0" prefWidth="900.0" style="-fx-background-color: #F3F4F6;">
+                            <children>
+                                <Button fx:id="saveProduct" layoutX="781.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Save">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="updateProduct" layoutX="781.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Update">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="removeProduct" layoutX="781.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Remove">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="cancelProduct" layoutX="781.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Cancel">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <ChoiceBox fx:id="CategoryProduct" layoutX="492.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" />
+                                <Label layoutX="3.0" layoutY="1.0" text="Products">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="28.0" layoutY="60.0" prefHeight="30.0" prefWidth="40.0" text="Code:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="28.0" layoutY="120.0" prefHeight="30.0" prefWidth="45.0" text="Name:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="28.0" layoutY="180.0" prefHeight="30.0" prefWidth="45.0" text="Price:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="385.0" layoutY="184.0" prefHeight="30.0" prefWidth="45.0" text="ID:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="385.0" layoutY="60.0" prefHeight="30.0" prefWidth="80.0" text="Description:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="385.0" layoutY="123.0" prefHeight="30.0" prefWidth="65.0" text="Category:">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="codeProduct" layoutX="90.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="nameProduct" layoutX="90.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="priceProduct" layoutX="90.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="idProduct" editable="false" layoutX="493.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="descriptionProduct" layoutX="490.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </Pane>
+
+                        <TableView fx:id="tableProduct" layoutX="55.0" layoutY="362.0" prefHeight="175.0" prefWidth="900.0">
+                            <columns>
+                                <TableColumn prefWidth="113.0" text="ID" />
+                                <TableColumn minWidth="0.0" prefWidth="126.0" text="CODE" />
+                                <TableColumn prefWidth="169.0" text="PRICE" />
+                                <TableColumn prefWidth="165.0" text="AMOUNT" />
+                                <TableColumn prefWidth="162.0" text="CATEGORY" />
+                                <TableColumn minWidth="0.0" prefWidth="164.0" text="NAME" />
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="searchProduct" layoutX="147.0" layoutY="310.0" prefHeight="30.0" prefWidth="200.0">
+                            <font>
+                                <Font name="Segoe Print Bold" size="12.0" />
+                            </font>
+                        </TextField>
+                        <Label layoutX="85.0" layoutY="314.0" prefWidth="60.0" text="Search:">
+                            <font>
+                                <Font name="Segoe Print Bold" size="13.0" />
+                            </font>
+                        </Label>
+
+                    </Pane>
+                </Tab>
+                <Tab text="Purchase">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="310.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="Product Code:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="123.0" prefHeight="30.0" text="Product Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="189.0" prefHeight="30.0" text="Amount">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="255.0" prefHeight="30.0" text="Supplier">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" text="Purchase  Price:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="125.0" prefHeight="30.0" text="SubTotal:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="189.0" prefHeight="30.0" text="ID:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="257.0" prefHeight="30.0" text="Total Due:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="3.0" layoutY="1.0" prefHeight="30.0" prefWidth="103.0" text="New Purchase">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="purchaseProductCode" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="purchaseProductName" layoutX="130.0" layoutY="124.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="purchaseAmount" layoutX="130.0" layoutY="191.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="supplierPurchase" layoutX="130.0" layoutY="255.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="purchasePrice" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="purchaseSubtotal" editable="false" layoutX="521.0" layoutY="124.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="purchaseID" editable="false" layoutX="521.0" layoutY="191.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="PurchaseTotalDue" editable="false" layoutX="521.0" layoutY="253.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <Button fx:id="addPurchasebutton" layoutX="817.0" layoutY="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="ADD">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="buyPurchasebutton" layoutX="817.0" layoutY="105.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="BUY">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deletPurchasebutton" layoutX="817.0" layoutY="175.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="DELETE">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="newPurchaseButton" layoutX="817.0" layoutY="240.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="NEW">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </Pane>
+                            <TableView fx:id="purchaseTable" layoutX="35.0" layoutY="375.0" prefHeight="150.0" prefWidth="920.0">
+                                <columns>
+                                    <TableColumn prefWidth="97.0" text="ID" />
+                                    <TableColumn prefWidth="178.0" text="PRODUCT NAME" />
+                                    <TableColumn prefWidth="186.0" text="AMOUNT" />
+                                    <TableColumn prefWidth="153.0" text="PRICE" />
+                                    <TableColumn prefWidth="130.0" text="SUBTOTAL" />
+                                    <TableColumn prefWidth="175.0" text="SUPPLIER" />
+
+                                </columns>
+                            </TableView>
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Sales">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="310.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="Product Code:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="230.0" layoutY="67.0" text="ID">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="120.0" prefHeight="30.0" text="Amount:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="193.0" prefHeight="30.0" text="Client ID:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="264.0" prefHeight="30.0" prefWidth="66.0" text="Total Due:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" text="Sale  Price:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="427.0" layoutY="122.0" prefHeight="30.0" text="SubTotal:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="193.0" prefHeight="30.0" text="Stock:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="264.0" prefHeight="30.0" text="Client Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="3.0" layoutY="1.0" prefHeight="30.0" prefWidth="103.0" text="New Sale">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="salesProductCode" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="90.0" />
+                                    <TextField fx:id="salesID" editable="false" layoutX="256.0" layoutY="60.0" prefHeight="30.0" prefWidth="74.0" />
+                                    <TextField fx:id="salesProductName" layoutX="129.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salesAmount" layoutX="130.0" layoutY="195.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salessupplier" layoutX="130.0" layoutY="264.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salesPrice" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salesSubtotal" editable="false" layoutX="520.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salesStock" editable="false" layoutX="521.0" layoutY="191.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="salesTotalDue" editable="false" layoutX="521.0" layoutY="262.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <Button fx:id="addSalesbutton" layoutX="817.0" layoutY="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="ADD">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="buySellbutton" layoutX="817.0" layoutY="105.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="SELL">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deletSalesbutton" layoutX="817.0" layoutY="175.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="DELETE">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="newSalesButton" layoutX="817.0" layoutY="240.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="NEW">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </Pane>
+                            <TableView fx:id="saleTable" layoutX="35.0" layoutY="375.0" prefHeight="150.0" prefWidth="920.0">
+                                <columns>
+                                    <TableColumn prefWidth="97.0" text="ID " />
+                                    <TableColumn prefWidth="178.0" text="PRODUCT NAME" />
+                                    <TableColumn prefWidth="186.0" text="AMOUNT" />
+                                    <TableColumn prefWidth="153.0" text="SALE PRICE" />
+                                    <TableColumn prefWidth="130.0" text="SUBTOTAL" />
+                                    <TableColumn prefWidth="175.0" text="CLIENT NAME" />
+
+                                </columns>
+                            </TableView>
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Customer">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="250.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+
+                                <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="User ID">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="38.0" layoutY="120.0" prefHeight="30.0" text="Full Name">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="38.0" layoutY="180.0" prefHeight="30.0" text="Address">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" text="Telephone">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="420.0" layoutY="120.0" prefHeight="30.0" text="Email">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="userIDCustomer" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                <TextField fx:id="fullNameCustomer" layoutX="130.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" />
+                                <TextField fx:id="addressCustomer" layoutX="130.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0" />
+                                <TextField fx:id="telephoneCustomer" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                <TextField fx:id="emailCustomer" layoutX="520.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" />
+                                <Button fx:id="singUpCustomer" layoutX="817.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Sing Up">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="updateCustomer" layoutX="817.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Update">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="deleteCustomer" layoutX="817.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Delete">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="cancelCustomer" layoutX="817.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Cancel">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Label layoutX="3.0" layoutY="3.0" prefHeight="22.0" prefWidth="63.0" text="Customer">
+                                    <font>
+                                        <Font name="Segoe Print Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </Pane>
+                            <TextField fx:id="searchCustomer" layoutX="125.0" layoutY="295.0" prefHeight="30.0" prefWidth="200.0" />
+                            <Label layoutX="54.0" layoutY="301.0" text="Search:">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="12.0" />
+                                </font>
+                            </Label>
+                            <TableView fx:id="CustomerTable" layoutX="35.0" layoutY="355.0" prefHeight="158.0" prefWidth="920.0">
+                                <columns>
+                                    <TableColumn fx:id="userName" prefWidth="168.0" text="USER NAME" />
+                                    <TableColumn prefWidth="183.0" text="ADDRESS" />
+                                    <TableColumn prefWidth="234.0" text="TELEHONE" />
+                                    <TableColumn prefWidth="243.0" text="EMAIL" />
+                                    <TableColumn prefWidth="91.0" text="USER ID" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Employee">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="310.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="Emproyee ID:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="125.0" prefHeight="30.0" text="Full Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="190.0" prefHeight="30.0" prefWidth="73.0" text="User Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="250.0" prefHeight="30.0" text="Rol:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" text="Address:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="125.0" prefHeight="30.0" text="Telephone:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="190.0" prefHeight="30.0" text="Email">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="250.0" prefHeight="30.0" text="Password">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="3.0" layoutY="1.0" prefHeight="30.0" prefWidth="103.0" text="Employee">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="idEmployee" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="fullNameEmloyee" layoutX="130.0" layoutY="125.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="userNameEmployee" layoutX="130.0" layoutY="190.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="addressEmployee" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="telephoneEmployee" editable="false" layoutX="521.0" layoutY="125.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="emailEmployee" editable="false" layoutX="521.0" layoutY="190.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <Button fx:id="singUpEmpployee" layoutX="817.0" layoutY="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Sing Up">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="upDateEmployee" layoutX="817.0" layoutY="105.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Update">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deletEmployee" layoutX="817.0" layoutY="175.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Remove">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="cancelEmployee" layoutX="817.0" layoutY="240.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Cancel">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <ChoiceBox fx:id="rolEmployee" layoutX="130.0" layoutY="250.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <PasswordField fx:id="passwordEmployee" layoutX="521.0" layoutY="250.0" prefHeight="30.0" prefWidth="200.0" />
+                                </children>
+                            </Pane>
+                            <TableView fx:id="employeeTable" layoutX="35.0" layoutY="403.0" prefHeight="128.0" prefWidth="920.0">
+                                <columns>
+                                    <TableColumn prefWidth="84.0" text="ID" />
+                                    <TableColumn prefWidth="130.0" text="NAME" />
+                                    <TableColumn prefWidth="130.0" text="USER NAME" />
+                                    <TableColumn prefWidth="130.0" text="ADDRESS " />
+                                    <TableColumn prefWidth="130.0" text="TELEPHONE" />
+                                    <TableColumn minWidth="130.0" prefWidth="180.0" text="EMAIL" />
+                                    <TableColumn prefWidth="135.0" text="ROL" />
+                                </columns>
+                            </TableView>
+                            <Label layoutX="59.0" layoutY="345.0" prefHeight="30.0" text="Search">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="12.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="searchEmployee" layoutX="120.0" layoutY="345.0" prefHeight="30.0" prefWidth="200.0" />
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Supplier">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="310.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="125.0" prefHeight="30.0" text="Address:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="190.0" prefHeight="30.0" prefWidth="73.0" text="Telephone:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="255.0" prefHeight="30.0" prefWidth="46.0" text="Email:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" prefWidth="80.0" text="Description:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="130.0" prefHeight="30.0" prefWidth="42.0" text="City:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="428.0" layoutY="190.0" prefHeight="30.0" text="Supliyer ID:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="6.0" layoutY="-1.0" prefHeight="30.0" prefWidth="103.0" text="Supplier">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="nameSupplier" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <TextField fx:id="addressSupplier" layoutX="130.0" layoutY="125.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <TextField fx:id="telephoneSupplier" layoutX="130.0" layoutY="190.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <TextField fx:id="descriptionSupplier" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <TextField fx:id="SupplierID" editable="false" layoutX="521.0" layoutY="190.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <Button fx:id="singUpSuppliyer" layoutX="817.0" layoutY="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Sing Up">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="upDateSuppliyer" layoutX="817.0" layoutY="105.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Update">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deletSuppliyer" layoutX="817.0" layoutY="175.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Remove">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="cancelSuppliyer" layoutX="817.0" layoutY="240.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Cancel">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <TextField fx:id="emailSupplier" layoutX="130.0" layoutY="255.0" prefHeight="30.0" prefWidth="250.0" />
+                                    <ChoiceBox fx:id="citySupplier" layoutX="520.0" layoutY="130.0" prefHeight="30.0" prefWidth="250.0" />
+                                </children>
+                            </Pane>
+                            <TableView fx:id="tableSupplier" layoutX="35.0" layoutY="403.0" prefHeight="128.0" prefWidth="920.0">
+                                <columns>
+                                    <TableColumn prefWidth="84.0" text="ID" />
+                                    <TableColumn prefWidth="130.0" text="NAME" />
+                                    <TableColumn prefWidth="130.0" text="DESCRIPTION" />
+                                    <TableColumn prefWidth="130.0" text="ADDRESS " />
+                                    <TableColumn prefWidth="130.0" text="TELEPHONE" />
+                                    <TableColumn minWidth="130.0" prefWidth="180.0" text="EMAIL" />
+                                    <TableColumn prefWidth="135.0" text="CITY" />
+                                </columns>
+                            </TableView>
+                            <Label layoutX="58.0" layoutY="353.0" prefHeight="30.0" text="Search">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="12.0" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="searchSupplier" layoutX="114.0" layoutY="353.0" prefHeight="30.0" prefWidth="250.0" />
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Category">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="34.0" layoutY="52.0" prefHeight="270.0" prefWidth="520.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Button fx:id="singUpCategory" layoutX="442.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Sign In">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="updateCategory" layoutX="442.0" layoutY="82.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Update">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deleteCategory" layoutX="442.0" layoutY="149.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="cancelCategory" layoutX="442.0" layoutY="209.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Cancel">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Label layoutX="62.0" layoutY="40.0" prefHeight="30.0" text="ID:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="62.0" layoutY="107.0" prefHeight="30.0" text="Name:">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="idCategory" editable="false" layoutX="125.0" layoutY="40.0" prefHeight="30.0" prefWidth="230.0" />
+                                    <TextField fx:id="nameCategory" layoutX="125.0" layoutY="107.0" prefHeight="30.0" prefWidth="230.0" />
+                                    <Label layoutX="3.0" layoutY="3.0" text="Category">
+                                        <font>
+                                            <Font name="Segoe Print Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                </children>
+                            </Pane>
+                            <TableView fx:id="categoryTable" layoutX="579.0" layoutY="96.0" prefHeight="226.0" prefWidth="415.0">
+                                <columns>
+                                    <TableColumn prefWidth="98.0" text="ID" />
+                                    <TableColumn prefWidth="353.0" text="NAME" />
+                                </columns>
+                            </TableView>
+                            <TextField fx:id="searchCategory" layoutX="654.0" layoutY="48.0" prefHeight="30.0" prefWidth="230.0" />
+                            <Label layoutX="579.0" layoutY="52.0" prefHeight="22.0" prefWidth="60.0" text="Search:">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="12.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Bussines Report">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Label layoutX="376.0" layoutY="10.0" text="Purchase History">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="30.0" />
+                                </font>
+                            </Label>
+                            <TableView fx:id="busssinesPurcchaseReportTable" layoutX="50.0" layoutY="64.0" prefHeight="200.0" prefWidth="900.0">
+                                <columns>
+                                    <TableColumn prefWidth="163.0" text="Invoice" />
+                                    <TableColumn prefWidth="292.0" text="Supplier" />
+                                    <TableColumn prefWidth="206.0" text="Total" />
+                                    <TableColumn prefWidth="238.0" text="Purchase Date" />
+                                </columns>
+                            </TableView>
+                            <Label layoutX="407.0" layoutY="276.0" text="Sales History">
+                                <font>
+                                    <Font name="Segoe Print Bold" size="30.0" />
+                                </font>
+                            </Label>
+                            <TableView fx:id="busssinesSalesReportTable" layoutX="50.0" layoutY="327.0" prefHeight="200.0" prefWidth="900.0">
+                                <columns>
+                                    <TableColumn prefWidth="163.0" text="Invoice" />
+                                    <TableColumn prefWidth="292.0" text="Client" />
+                                    <TableColumn prefWidth="206.0" text="Total" />
+                                    <TableColumn prefWidth="238.0" text="Sale Date" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </Pane>
+                </Tab>
+                <Tab text="Profile">
+                    <Pane style="-fx-background-color: #98CAF0;">
+                        <children>
+                            <Pane layoutX="35.0" layoutY="20.0" prefHeight="390.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+                                <children>
+                                    <Label layoutX="2.0" layoutY="1.0" prefHeight="22.0" prefWidth="48.0" text="Profile">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="60.0" prefHeight="30.0" text="User ID:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="125.0" prefHeight="30.0" text="Full Name:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="12.0" layoutY="185.0" prefHeight="30.0" text="Address:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="15.0" layoutY="245.0" prefHeight="30.0" text="Phone Number:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="16.0" layoutY="305.0" prefHeight="30.0" prefWidth="60.0" text="Email:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="userIdProfile" layoutX="118.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="fullNameProfile" layoutX="118.0" layoutY="125.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="addessProfile" layoutX="118.0" layoutY="185.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="phoneNumberProfile" layoutX="118.0" layoutY="245.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <TextField fx:id="emailProfile" layoutX="118.0" layoutY="305.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <PasswordField fx:id="newPasswordProfile" layoutX="539.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <PasswordField fx:id="confirmPasswordProfile" layoutX="539.0" layoutY="125.0" prefHeight="30.0" prefWidth="200.0" />
+                                    <Label layoutX="397.0" layoutY="60.0" prefHeight="30.0" text="New password:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="397.0" layoutY="125.0" prefHeight="30.0" text="Confirm password:">
+                                        <font>
+                                            <Font name="Segoe Print" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Button fx:id="updateProfileBotton" layoutX="820.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Update" />
+                                </children>
+                            </Pane>
+                        </children>
+                    </Pane>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="LoginView" accessibleText="480" prefHeight="415.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kurodarck.pharmacysystem.controller.LoginController">
+    <children>
+        <Pane prefHeight="420.0" prefWidth="490.0" style="-fx-background-color: red;">
+            <children>
+                <ImageView fitHeight="440.0" fitWidth="675.0" layoutX="-63.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../Image/wallpaper.jpg" />
+                    </image>
+
+                    <viewport>
+                        <Rectangle2D />
+                    </viewport>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="440.0" prefHeight="420.0" prefWidth="490.0" style="-fx-background-color: #161b22;">
+            <children>
+                <PasswordField fx:id="txt_password" layoutX="170.0" layoutY="234.0" prefHeight="38.0" prefWidth="277.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </PasswordField>
+                <TextField fx:id="text_UserName" layoutX="170.0" layoutY="153.0" prefHeight="38.0" prefWidth="277.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="Submit" onAction="#OnSubmitButtonClick" layoutX="197.0" layoutY="310.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="82.0" text="Submit" textAlignment="CENTER" textFill="#0d1117">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <font>
+                  <Font name="Segoe Print Bold" size="12.0" />
+               </font>
+                </Button>
+                <Label layoutX="181.0" layoutY="46.0" text="Sing In" textAlignment="CENTER" textFill="#d2a8ff">
+                    <font>
+                        <Font name="Segoe Print Bold" size="36.0" />
+                    </font>
+                </Label>
+                <Label layoutX="64.0" layoutY="159.0" text="User Name:" textFill="#d2a8ff">
+                    <font>
+                        <Font name="Segoe Print" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="64.0" layoutY="240.0" text="Password:" textFill="#d2a8ff">
+                    <font>
+                        <Font name="Segoe Print" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
