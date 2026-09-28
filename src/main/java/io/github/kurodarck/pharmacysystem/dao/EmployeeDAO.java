@@ -13,7 +13,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
 
 
     /**
-     * Converts a database ResultSet row into an Employee instance.
+     * Converts a database ResultSet row from #Employee into an Employee instance.
      */
     private Employee mapResultSetToEmployee(ResultSet resultSet) throws SQLException {
         Employee employee = new Employee();
@@ -26,23 +26,12 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
         employee.setEmail(resultSet.getString("email"));
         employee.setPassword(resultSet.getString("password"));
         employee.setRole(resultSet.getString("rol"));
-        employee.setActive(resultSet.getBoolean("is_active"));
+        employee.setIsActive(resultSet.getBoolean("is_active"));
         Timestamp createdAt = resultSet.getTimestamp("created");
         Timestamp updatedAt = resultSet.getTimestamp("updated");
 
-        if (createdAt != null) {
-            employee.setCreatedAt(createdAt.toLocalDateTime());
-
-        } else {
-            employee.setCreatedAt(null);
-
-        }
-
-        if (updatedAt != null) {
-            employee.setUpdatedAt(updatedAt.toLocalDateTime());
-        } else {
-            employee.setUpdatedAt(null);
-        }
+        employee.setCreatedAt(createdAt != null ? createdAt.toLocalDateTime() : null);
+        employee.setUpdatedAt(updatedAt != null ? updatedAt.toLocalDateTime() : null);
 
         return employee;
 
@@ -54,7 +43,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
      * Returns an Optional containing the Employee if found and active, or empty otherwise.
      */
 
-    public Optional<Employee> loggingQuery(String username, String user_Password) throws SQLException{
+    public Optional<Employee> loggingQuery(String username, String user_Password) throws SQLException {
         String query = "SELECT * FROM employees WHERE username = ? AND password = ? AND is_active = true";
 
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -103,7 +92,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
             preparedStatement.setString(6, entity.getEmail());
             preparedStatement.setString(7, entity.getPassword());
             preparedStatement.setString(8, entity.getRole());
-            preparedStatement.setBoolean(9, entity.isActive());
+            preparedStatement.setBoolean(9, entity.getIsActive());
             LocalDateTime nowDate = LocalDateTime.now();
             preparedStatement.setTimestamp(10, Timestamp.valueOf(nowDate));
             preparedStatement.setTimestamp(11, Timestamp.valueOf(nowDate));
@@ -125,7 +114,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
     }
 
     /**
-     * Updates an employee in the database by DNI.
+     * Updates an #Employee in the database by DNI.
      * Returns true if a row was modified, false otherwise.
      */
     @Override
@@ -144,7 +133,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
             preparedStatement.setString(6, entity.getEmail());
             preparedStatement.setString(7, entity.getPassword());
             preparedStatement.setString(8, entity.getRole());
-            preparedStatement.setBoolean(9, entity.isActive());
+            preparedStatement.setBoolean(9, entity.getIsActive());
             LocalDateTime nowDate = LocalDateTime.now();
             preparedStatement.setTimestamp(10, Timestamp.valueOf(nowDate));
             preparedStatement.setString(11, entity.getDni());
@@ -179,7 +168,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
     }
 
     /**
-     * Retrieves an active employee from the database by DNI.
+     * Retrieves an active #Employee from the database by DNI.
      * Returns an Optional with the employee if found, or empty otherwise.
      */
     @Override
@@ -199,7 +188,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
     }
 
     /**
-     * Retrieves all active employees from the database.
+     * Retrieves all active #Employees from the database.
      * Returns a list of active employees, or an empty list if none exist.
      */
     @Override

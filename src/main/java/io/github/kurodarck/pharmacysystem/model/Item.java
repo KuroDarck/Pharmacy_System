@@ -34,11 +34,11 @@ public class Item {
         this.name = name;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
@@ -63,7 +63,7 @@ public class Item {
         return "Item{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", isActive=" + isActive +
+                ", getIsActive=" + isActive +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

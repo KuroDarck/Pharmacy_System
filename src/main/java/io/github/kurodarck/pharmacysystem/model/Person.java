@@ -76,11 +76,11 @@ public class Person {
         this.email = email;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         isActive = active;
     }
 
@@ -109,7 +109,7 @@ public class Person {
                 ", address='" + address + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", isActive=" + isActive +
+                ", getIsActive=" + isActive +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

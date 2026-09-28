@@ -9,7 +9,7 @@ public class Category extends Item {
     }
 
     public Category(int id, String name, LocalDateTime createdAt, boolean isActive, LocalDateTime updatedAt) {
-        super(id, name,isActive, createdAt, updatedAt);
+        super(id, name, isActive, createdAt, updatedAt);
     }
 
     @Override

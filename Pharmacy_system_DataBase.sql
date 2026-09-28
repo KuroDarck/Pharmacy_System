@@ -1,82 +1,88 @@
 DROP DATABASE IF EXISTS Pharmacy_System;
 CREATE DATABASE IF NOT EXISTS Pharmacy_System;
 USE Pharmacy_System;
+
 CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(60) NOT NULL,
-    created DATETIME,
-    updated DATETIME
+    name VARCHAR(60) NOT NULL UNIQUE,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    code VARCHAR(50) UNIQUE NOT NULL,
+    code VARCHAR(50) NOT NULL UNIQUE,
     name VARCHAR(60) NOT NULL,
     description VARCHAR(255),
     unit_price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    product_quantity INT,
-    created DATETIME,
-    updated DATETIME,
-    category_id INT,
+    product_quantity INT NOT NULL DEFAULT 0,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    category_id INT NOT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE TABLE suppliers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    dni VARCHAR(15) UNIQUE NOT NULL,
+    dni VARCHAR(15) NOT NULL UNIQUE,
     name VARCHAR(60) NOT NULL,
     description VARCHAR(255),
     telephone VARCHAR(20),
     address VARCHAR(60),
     email VARCHAR(255),
     city VARCHAR(60),
-    created DATETIME,
-    updated DATETIME
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    dni VARCHAR(15) NOT NULL,
+    dni VARCHAR(15) NOT NULL UNIQUE,
     full_name VARCHAR(60) NOT NULL,
-    username VARCHAR(60) NOT NULL,
+    username VARCHAR(60) NOT NULL UNIQUE,
     address VARCHAR(60),
     telephone VARCHAR(20),
     email VARCHAR(255),
     password VARCHAR(255) NOT NULL,
-    rol VARCHAR(20),
-    created DATETIME,
-    updated DATETIME
+    rol VARCHAR(20) NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    dni VARCHAR(15) UNIQUE NOT NULL,
+    dni VARCHAR(15) NOT NULL UNIQUE,
     full_name VARCHAR(60) NOT NULL,
     address VARCHAR(60),
     telephone VARCHAR(20),
     email VARCHAR(255),
-    created DATETIME,
-    updated DATETIME
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE purchases (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    supplier_id INT,
-    employee_id INT,
-    invoice_number VARCHAR(50),
+    supplier_id INT NOT NULL,
+    employee_id INT NOT NULL,
+    invoice_number VARCHAR(50) NOT NULL UNIQUE,
     total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    created DATETIME,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (supplier_id) REFERENCES suppliers(id),
     FOREIGN KEY (employee_id) REFERENCES employees(id)
 );
 
 CREATE TABLE sales (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    invoice_number VARCHAR(50),
-    customer_id INT,
-    employee_id INT,
+    invoice_number VARCHAR(50) NOT NULL UNIQUE,
+    customer_id INT NOT NULL,
+    employee_id INT NOT NULL,
     total DECIMAL(10,2) NOT NULL DEFAULT 0.00, 
-    created DATETIME, 
+    created DATETIME DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (customer_id) REFERENCES customers(id),
     FOREIGN KEY (employee_id) REFERENCES employees(id)
 );
@@ -84,11 +90,21 @@ CREATE TABLE sales (
 CREATE TABLE purchase_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     purchase_price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    purchase_amount INT,
+    purchase_amount INT NOT NULL DEFAULT 1,
     purchase_subtotal DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    purchase_id INT,
-    product_id INT,
+    purchase_id INT NOT NULL,
+    product_id INT NOT NULL,
     FOREIGN KEY (purchase_id) REFERENCES purchases(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
+CREATE TABLE sale_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sale_price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    sale_amount INT NOT NULL DEFAULT 1,
+    sale_subtotal DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    sale_id INT NOT NULL,
+    product_id INT NOT NULL,
+    FOREIGN KEY (sale_id) REFERENCES sales(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
