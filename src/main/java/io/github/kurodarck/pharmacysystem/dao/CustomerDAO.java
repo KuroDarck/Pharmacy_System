@@ -14,7 +14,7 @@ public class CustomerDAO implements CrudDAO<Customer, String> {
     /**
      * Converts a database ResultSet row from #Customer into an Employee instance.
      */
-    private Customer mapResultSetToCustomere(ResultSet resultSet) throws SQLException {
+    private Customer mapResultSetToCustomer(ResultSet resultSet) throws SQLException {
         Customer customer = new Customer();
         customer.setId(resultSet.getInt("id"));
         customer.setDni(resultSet.getString("dni"));
@@ -132,7 +132,7 @@ public class CustomerDAO implements CrudDAO<Customer, String> {
             preparedStatement.setString(1, dni);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    return Optional.of(mapResultSetToCustomere(resultSet));
+                    return Optional.of(mapResultSetToCustomer(resultSet));
 
                 }
             }
@@ -151,7 +151,7 @@ public class CustomerDAO implements CrudDAO<Customer, String> {
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
-                    customers.add(mapResultSetToCustomere(resultSet));
+                    customers.add(mapResultSetToCustomer(resultSet));
                 }
             }
         }

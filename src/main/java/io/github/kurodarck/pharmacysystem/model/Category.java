@@ -8,6 +8,10 @@ public class Category extends Item {
         super();
     }
 
+    public Category(int id) {
+        super(id);
+    }
+
     public Category(int id, String name, LocalDateTime createdAt, boolean isActive, LocalDateTime updatedAt) {
         super(id, name, isActive, createdAt, updatedAt);
     }

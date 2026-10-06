@@ -4,24 +4,28 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Item {
-    private int id;
+    private Integer id;
     private String name;
     boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     protected Item() {}
-    protected Item(int id, String name, boolean isActive,  LocalDateTime createdAt, LocalDateTime updatedAt) {
+
+    protected Item(Integer id) {
+        this.id = id;
+    }
+    protected Item(Integer id, String name, boolean isActive,  LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.isActive=isActive;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
