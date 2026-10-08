@@ -117,14 +117,16 @@ public class CustomerDAO implements CrudDAO<Customer, String> {
         String query = "UPDATE customers \n" + "SET is_active = false, updated = ? \n" + "WHERE dni = ?";
 
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            LocalDateTime nowDate = LocalDateTime.now();
-            preparedStatement.setTimestamp(1, Timestamp.valueOf(nowDate));
+            preparedStatement.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
             preparedStatement.setString(2, dni);
             affectedRows = preparedStatement.executeUpdate();
         }
         return affectedRows > 0;
     }
 
+    /**
+     * Finds an active customer by their DNI, returning an {@link Optional} with the result if found.
+     */
     @Override
     public Optional<Customer> findById(String dni) throws SQLException {
         String query = "SELECT * FROM customers WHERE dni = ? AND is_active = true";

@@ -6,10 +6,11 @@ import io.github.kurodarck.pharmacysystem.model.Product;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductDAO implements CrudDAO<Product, String> {
+public class ProductDAO implements CrudDAO<Product, Integer> {
 
     /**
      * Converts a database ResultSet row from #Products into a Product instance.
@@ -119,17 +120,45 @@ public class ProductDAO implements CrudDAO<Product, String> {
     }
 
     @Override
-    public boolean softDelete(String code) throws SQLException {
-        return false;
+    public boolean softDelete(Integer id) throws SQLException {
+        String query = "UPDATE products SET  is_active = false, updated = ? WHERE id = ?";
+        final int rowAffect;
+        try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
+            preparedStatement.setInt(2, id);
+            rowAffect = preparedStatement.executeUpdate();
+        }
+        return rowAffect > 0;
     }
 
+    /**
+     * Finds an active Product by their ID, returning an {@link Optional} with the result if found.
+     */
     @Override
-    public Optional<Product> findById(String code) throws SQLException {
+    public Optional<Product> findById(Integer id) throws SQLException {
+        String query = "SELECT * FROM products WHERE id=? AND is_active= true";
+        try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                if (resultSet.next()) {
+                    return Optional.of(mapResultSetToProduct(resultSet));
+                }
+            }
+        }
         return Optional.empty();
     }
 
     @Override
     public List<Product> findAll() throws SQLException {
-        return List.of();
+        String query = "SELECT * FROM products WHERE is_active = true";
+        List<Product> products = new ArrayList<>();
+        try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                while (resultSet.next()) {
+                    products.add(mapResultSetToProduct(resultSet));
+                }
+            }
+        }
+        return products;
     }
 }
