@@ -101,7 +101,7 @@ public class CategoryDAO implements CrudDAO<Category, Integer> {
     @Override
     public boolean softDelete(Integer id) throws SQLException {
         final int affectedRows;
-        String query = "UPDATE categories \n" + "SET is_active = false, updated = ? \n" + "WHERE id = ?";
+        String query = "UPDATE categories SET is_active = false, updated = ? WHERE id = ?";
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             LocalDateTime nowDate = LocalDateTime.now();
             preparedStatement.setTimestamp(1, Timestamp.valueOf(nowDate));

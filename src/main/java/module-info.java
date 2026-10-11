@@ -4,6 +4,7 @@ module io.github.kurodarck.pharmacysystem {
     requires java.desktop;
     requires java.sql;
     requires java.management;
+    requires jdk.jfr;
 
     // Apertura de paquetes para reflexión de JavaFX (Vistas y Controladores)
     opens io.github.kurodarck.pharmacysystem to javafx.fxml;
