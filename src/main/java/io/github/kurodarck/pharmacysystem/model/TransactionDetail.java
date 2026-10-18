@@ -5,14 +5,17 @@ import java.time.LocalDateTime;
 
 public class TransactionDetail {
 
-    private int id;
+    private Integer id;
     private Product product;
-    private int amount;
+    private Integer amount;
     private BigDecimal price;
     private BigDecimal subtotal;
 
     public TransactionDetail() {}
 
+    public TransactionDetail (int id){
+        this.id = id;
+    }
     public TransactionDetail(int id, Product product, int amount, BigDecimal price, BigDecimal subtotal) {
         this.id = id;
         this.product = product;

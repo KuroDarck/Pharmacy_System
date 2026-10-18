@@ -13,6 +13,10 @@ public class Transaction {
     public Transaction() {
     }
 
+    public Transaction(int id) {
+        this.id = id;
+    }
+
     public Transaction(int id, String invoiceNumber, Employee employee, BigDecimal total, LocalDateTime createdAt) {
         this.id = id;
         this.invoiceNumber = invoiceNumber;

@@ -2,6 +2,7 @@ package io.github.kurodarck.pharmacysystem.dao;
 
 import io.github.kurodarck.pharmacysystem.config.MySQLConnection;
 import io.github.kurodarck.pharmacysystem.model.Employee;
+import io.github.kurodarck.pharmacysystem.model.Sale;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -80,7 +81,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
      * Saves an employee record in the database and sets its generated ID.
      */
     @Override
-    public Employee create(Employee entity) throws SQLException {
+    public Optional<Employee> create(Employee entity) throws SQLException {
         String query = "INSERT INTO employees (dni, full_name, username, address, telephone, email, password, rol, is_active, created, updated) \n" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -110,7 +111,7 @@ public class EmployeeDAO implements CrudDAO<Employee, String> {
             entity.setCreatedAt(nowDate);
             entity.setUpdatedAt(nowDate);
         }
-        return entity;
+        return Optional.of(entity);
     }
 
     /**

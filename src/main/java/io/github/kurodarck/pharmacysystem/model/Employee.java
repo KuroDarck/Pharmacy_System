@@ -8,13 +8,16 @@ public class Employee extends Person {
     private String role;
 
 
-
     public Employee() {
         super();
     }
 
+    public Employee(int id) {
+        super(id);
+    }
+
     public Employee(int id, String dni, String fullName, String address, String email, String username, String password, String role, String telephoneNumber, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        super(id, dni, fullName, address, telephoneNumber, email, isActive, createdAt,updatedAt);
+        super(id, dni, fullName, address, telephoneNumber, email, isActive, createdAt, updatedAt);
         this.userName = username;
         this.password = password;
         this.role = role;

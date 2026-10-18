@@ -2,6 +2,7 @@ package io.github.kurodarck.pharmacysystem.dao;
 
 import io.github.kurodarck.pharmacysystem.config.MySQLConnection;
 import io.github.kurodarck.pharmacysystem.model.Category;
+import io.github.kurodarck.pharmacysystem.model.Sale;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -48,7 +49,7 @@ public class CategoryDAO implements CrudDAO<Category, Integer> {
      * Saves an #Category record in the database and sets its generated ID.
      */
     @Override
-    public Category create(Category entity) throws SQLException {
+    public Optional<Category> create(Category entity) throws SQLException {
         String query = "INSERT INTO categories (name, is_active, created, updated) \n" +
                 "VALUES (?, ?, ?, ?)";
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -69,7 +70,7 @@ public class CategoryDAO implements CrudDAO<Category, Integer> {
             entity.setUpdatedAt(nowDate);
         }
 
-        return entity;
+        return Optional.of(entity);
     }
 
     /**
@@ -95,7 +96,7 @@ public class CategoryDAO implements CrudDAO<Category, Integer> {
     }
 
     /**
-     * Deactivates an #Category in the database by ID (soft delete).
+     * Deactivates a #Category in the database by ID (soft delete).
      * Returns true if a row was modified, false otherwise.
      */
     @Override

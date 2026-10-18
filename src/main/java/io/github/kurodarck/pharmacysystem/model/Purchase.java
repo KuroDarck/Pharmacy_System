@@ -9,6 +9,9 @@ public class Purchase extends Transaction {
     public Purchase() {
         super();
     }
+    public Purchase(int id){
+        super(id);
+    }
     public Purchase(int id, String invoiceNumber, Employee employee,Supplier supplier, BigDecimal total, LocalDateTime createdAt ) {
         super(id,invoiceNumber,employee,total,createdAt);
         this.supplier = supplier;

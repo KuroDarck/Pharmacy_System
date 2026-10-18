@@ -10,6 +10,9 @@ public class Supplier extends Person {
         super();
     }
 
+    public Supplier(int id) {
+        super(id);
+    }
     public Supplier(int id, String dni, String fullName, String description, String address, String telephoneNumber, String email, String city, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
         super(id, dni, fullName, address, telephoneNumber, email,isActive,createdAt,updatedAt);
         this.description = description;

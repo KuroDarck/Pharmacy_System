@@ -6,20 +6,27 @@ import java.time.LocalDateTime;
 public class Product extends Item {
     private String code;
     private BigDecimal price;
-    private int amount;
+    private Integer amount;
     private String description;
     private Category category;
-    public Product(int id, String code, String name, BigDecimal price, int amount, String description, Category category, boolean isActive,LocalDateTime createdAt, LocalDateTime updatedAt) {
-        super(id,name,isActive, createdAt,updatedAt);
+
+    public Product() {
+        super();
+    }
+
+    public Product(Integer id) {
+        super(id);
+    }
+
+    public Product(Integer id, String code, String name, BigDecimal price, int amount, String description, Category category, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        super(id, name, isActive, createdAt, updatedAt);
         this.code = code;
         this.price = price;
         this.amount = amount;
         this.description = description;
         this.category = category;
     }
-    public Product(){
-        super();
-    }
+
     public String getCode() {
         return code;
     }
@@ -31,6 +38,7 @@ public class Product extends Item {
     public BigDecimal getPrice() {
         return price;
     }
+
     public void setPrice(BigDecimal price) {
         this.price = price;
     }

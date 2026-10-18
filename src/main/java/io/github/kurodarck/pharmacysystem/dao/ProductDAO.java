@@ -3,6 +3,7 @@ package io.github.kurodarck.pharmacysystem.dao;
 import io.github.kurodarck.pharmacysystem.config.MySQLConnection;
 import io.github.kurodarck.pharmacysystem.model.Category;
 import io.github.kurodarck.pharmacysystem.model.Product;
+import io.github.kurodarck.pharmacysystem.model.Sale;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -58,7 +59,7 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
      * Saves a #Product record in the database and sets its generated ID.
      */
     @Override
-    public Product create(Product entity) throws SQLException {
+    public Optional<Product> create(Product entity) throws SQLException {
         String query = "INSERT INTO products (code,name,description,unit_price,product_quantity,is_active,created,updated,category_id)\n" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, entity.getCode());
@@ -88,7 +89,7 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
             entity.setCreatedAt(dateNow);
             entity.setUpdatedAt(dateNow);
         }
-        return entity;
+        return Optional.of(entity);
     }
 
     @Override
@@ -115,6 +116,29 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
             if (rowAffect > 0) {
                 entity.setUpdatedAt(dateNow);
             }
+        }
+        return rowAffect > 0;
+    }
+
+    /**
+     * This is Overloading method, that It's going to be used to update amount of Product
+     *
+     * @param productID
+     * @param soldQuantity
+     * @param connection
+     * @return {@link Boolean}
+     * @throws SQLException
+     */
+    public boolean updateStock(Integer productID, Integer soldQuantity, Connection connection) throws SQLException {
+        String query = "UPDATE products SET  product_quantity = product_quantity-?, updated = ? WHERE id = ?";
+        final int rowAffect;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, soldQuantity);
+            LocalDateTime dateNow = LocalDateTime.now();
+            preparedStatement.setTimestamp(2, Timestamp.valueOf(dateNow));
+            preparedStatement.setInt(3, productID);
+
+            rowAffect = preparedStatement.executeUpdate();
         }
         return rowAffect > 0;
     }

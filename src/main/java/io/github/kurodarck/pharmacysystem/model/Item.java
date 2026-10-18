@@ -10,30 +10,34 @@ public class Item {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    protected Item() {}
+    protected Item() {
+    }
 
     protected Item(Integer id) {
         this.id = id;
     }
-    protected Item(Integer id, String name, boolean isActive,  LocalDateTime createdAt, LocalDateTime updatedAt) {
+
+    protected Item(Integer id, String name, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
-        this.isActive=isActive;
+        this.isActive = isActive;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
 
 
-
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }

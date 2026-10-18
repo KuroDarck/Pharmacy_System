@@ -78,9 +78,9 @@ CREATE TABLE purchases (
 
 CREATE TABLE sales (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    invoice_number VARCHAR(50) NOT NULL UNIQUE,
     customer_id INT NOT NULL,
     employee_id INT NOT NULL,
+    invoice_number VARCHAR(50) NOT NULL UNIQUE,
     total DECIMAL(10,2) NOT NULL DEFAULT 0.00, 
     created DATETIME DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (customer_id) REFERENCES customers(id),

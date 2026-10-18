@@ -3,7 +3,7 @@ package io.github.kurodarck.pharmacysystem.model;
 import java.time.LocalDateTime;
 
 public class Person {
-    private int id;
+    private Integer id;
     private String dni;
     private String fullName;
     private String address;
@@ -16,7 +16,11 @@ public class Person {
     public Person() {
     }
 
-    public Person(int id, String dni, String fullName, String address, String telephoneNumber, String email, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Person(Integer id) {
+        this.id = id;
+    }
+
+    public Person(Integer id, String dni, String fullName, String address, String telephoneNumber, String email, boolean isActive, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.dni = dni;
         this.fullName = fullName;
@@ -28,11 +32,11 @@ public class Person {
         this.updatedAt = updatedAt;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -1,6 +1,7 @@
 package io.github.kurodarck.pharmacysystem.dao;
 
 import io.github.kurodarck.pharmacysystem.config.MySQLConnection;
+import io.github.kurodarck.pharmacysystem.model.Sale;
 import io.github.kurodarck.pharmacysystem.model.Supplier;
 
 import java.sql.*;
@@ -51,7 +52,7 @@ public class SupplierDAO implements CrudDAO<Supplier, Integer> {
      * Saves an #Supplier record in the database and sets its generated ID.
      */
     @Override
-    public Supplier create(Supplier entity) throws SQLException {
+    public Optional<Supplier> create(Supplier entity) throws SQLException {
         String query = "INSERT INTO suppliers (dni,name,description,telephone,address,email,city,is_active, created, updated) \n" +
                 "VALUES (?, ?, ?, ?,?, ?, ?, ?,?,?)";
 
@@ -78,7 +79,7 @@ public class SupplierDAO implements CrudDAO<Supplier, Integer> {
             entity.setCreatedAt(dateNow);
             entity.setUpdatedAt(dateNow);
         }
-        return entity;
+        return Optional.of(entity);
     }
 
     /**

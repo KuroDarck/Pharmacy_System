@@ -5,9 +5,14 @@ import java.time.LocalDateTime;
 
 public class Sale extends Transaction {
     private Customer customer;
+    private Product product;
 
     public Sale() {
         super();
+    }
+
+    public Sale(Integer id) {
+        super(id);
     }
 
     public Sale(int id, String invoiceNumber, Employee employee, Customer customer, BigDecimal total, LocalDateTime createdAt) {
@@ -23,10 +28,19 @@ public class Sale extends Transaction {
         this.customer = customer;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     @Override
     public String toString() {
         return "Sale{" +
                 "customer=" + customer +
+                ", product=" + product +
                 "} " + super.toString();
     }
 }
