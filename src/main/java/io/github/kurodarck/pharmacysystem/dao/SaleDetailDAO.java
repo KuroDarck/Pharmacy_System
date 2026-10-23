@@ -75,7 +75,7 @@ public class SaleDetailDAO implements CrudDAO<SaleDetail, Integer> {
     /**
      * This is Overloading method
      * @param entity
-     * @param connection
+     * @param connection we receive an active connection
      * @return {@link SaleDetail}
      * @throws SQLException
      */

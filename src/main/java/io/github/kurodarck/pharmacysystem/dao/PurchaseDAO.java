@@ -47,7 +47,10 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
     }
 
     /**
-     * Saves an #Purchase record in the database and sets its generated ID.
+     * This is our Create method implementation
+     * @param entity this is the object that we receive
+     * @return {@link Optional} use to return the object mapped or an empty object
+     * @throws SQLException  in case tha we have problem with the database
      */
     @Override
     public Optional<Purchase> create(Purchase entity) throws SQLException {
@@ -55,6 +58,38 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
         Supplier supplier= entity.getSupplier();
         Employee employee = entity.getEmployee();
         try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);) {
+            preparedStatement.setInt(1, supplier.getId());
+            preparedStatement.setInt(2, employee.getId());
+            preparedStatement.setString(3, entity.getInvoiceNumber());
+            preparedStatement.setBigDecimal(4, entity.getTotal());
+            LocalDateTime purchaseDate = LocalDateTime.now();
+            preparedStatement.setTimestamp(5, Timestamp.valueOf(purchaseDate));
+            final int rowAffected = preparedStatement.executeUpdate();
+            if (rowAffected > 0) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        entity.setId(generatedKeys.getInt(1));
+                    }
+                }
+            }
+            entity.setCreatedAt(purchaseDate);
+        }
+
+        return Optional.of(entity);
+    }
+
+    /**
+     * thid is a overloading method to use with the PurchaseService
+     * @param entity the object tha we receive
+     * @return {@link Optional} A complete object mapped or an empty object
+     * @throws SQLException in case of something goes wrong
+     */
+
+    public Optional<Purchase> create(Purchase entity, Connection connection) throws SQLException {
+        String query = "INSERT INTO purchases (supplier_id,employee_id,invoice_number,total,created) VALUES (?,?,?,?,?)";
+        Supplier supplier= entity.getSupplier();
+        Employee employee = entity.getEmployee();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);) {
             preparedStatement.setInt(1, supplier.getId());
             preparedStatement.setInt(2, employee.getId());
             preparedStatement.setString(3, entity.getInvoiceNumber());

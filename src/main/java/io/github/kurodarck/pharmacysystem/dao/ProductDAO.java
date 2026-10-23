@@ -14,7 +14,10 @@ import java.util.Optional;
 public class ProductDAO implements CrudDAO<Product, Integer> {
 
     /**
-     * Converts a database ResultSet row from #Products into a Product instance.
+     * Converts a database ResultSet into a Products.
+     * @param resultSet Receive a resultset Variable to get a product instance from the Database
+     * @return {@link Product} Then return a Product mapped.
+     * @throws SQLException In case of something goes wrong
      */
 
     private Product mapResultSetToProduct(ResultSet resultSet) throws SQLException {
@@ -39,8 +42,10 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
     }
 
     /**
-     * Checks if an active #Product exists in the database by Code.
-     * Returns true if found, false otherwise.
+     * Checks if an active Product exists.
+     * @param code this is de variable that we're gonna use to check into the database
+     * @return {@link Boolean} true if found, false otherwise.
+     * @throws SQLException In case of something going wrong with the database.
      */
     public boolean existsByCode(String code) throws SQLException {
         String query = "SELECT 1 FROM products WHERE code = ? AND is_active = true";
@@ -56,7 +61,10 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
 
 
     /**
-     * Saves a #Product record in the database and sets its generated ID.
+     * Saves a new product record in the database and sets its generated ID.
+     * @param entity this is the product that this function receive.
+     * @return {@link Optional<Product>} An Optional can be enty or a complete Product.
+     * @throws SQLException In case of something goes wrong.
      */
     @Override
     public Optional<Product> create(Product entity) throws SQLException {
@@ -92,6 +100,12 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
         return Optional.of(entity);
     }
 
+    /**
+     * this method is gonna be used for the user to update the Product Information
+     * @param entity this is the product that It's going to be updated
+     * @return {@link Boolean} then we're going to use ths variable to cheak
+     * @throws SQLException
+     */
     @Override
     public boolean update(Product entity) throws SQLException {
         String query = "UPDATE products\n" + "SET code = ?, name = ?, description = ?, unit_price = ?, product_quantity = ?, is_active = ?, updated = ?,category_id = ?\n" + "WHERE id = ?";
@@ -121,13 +135,13 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
     }
 
     /**
-     * This is Overloading method, that It's going to be used to update amount of Product
+     * This is Overloading method, that It's going to be used by the sale service to update amount of Product
      *
-     * @param productID
-     * @param soldQuantity
-     * @param connection
-     * @return {@link Boolean}
-     * @throws SQLException
+     * @param productID    receive the Product ID
+     * @param soldQuantity and the Quantity
+     * @param connection   and a created Connection
+     * @return {@link Boolean} It's gonna be used to check if the chane were made it
+     * @throws SQLException In case of something goes wrong
      */
     public boolean updateStock(Integer productID, Integer soldQuantity, Connection connection) throws SQLException {
         String query = "UPDATE products SET  product_quantity = product_quantity-?, updated = ? WHERE id = ?";
@@ -137,7 +151,6 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
             LocalDateTime dateNow = LocalDateTime.now();
             preparedStatement.setTimestamp(2, Timestamp.valueOf(dateNow));
             preparedStatement.setInt(3, productID);
-
             rowAffect = preparedStatement.executeUpdate();
         }
         return rowAffect > 0;

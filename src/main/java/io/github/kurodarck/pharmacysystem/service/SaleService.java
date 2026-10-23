@@ -1,6 +1,7 @@
 package io.github.kurodarck.pharmacysystem.service;
 
 import io.github.kurodarck.pharmacysystem.config.MySQLConnection;
+import io.github.kurodarck.pharmacysystem.dao.ProductDAO;
 import io.github.kurodarck.pharmacysystem.dao.SaleDAO;
 import io.github.kurodarck.pharmacysystem.dao.SaleDetailDAO;
 import io.github.kurodarck.pharmacysystem.model.Sale;
@@ -14,9 +15,9 @@ import java.util.Optional;
 public class SaleService {
     private SaleDAO saleDAO = new SaleDAO();
     private SaleDetailDAO saleDetailDAO = new SaleDetailDAO();
+    private final ProductDAO productDAO = new ProductDAO();
 
     public SaleService() {
-
     }
 
     public SaleService(SaleDAO saleDAO, SaleDetailDAO saleDetailDao) {
@@ -24,26 +25,46 @@ public class SaleService {
         this.saleDetailDAO = saleDetailDao;
     }
 
+    /**
+     * This service, Manage the Sale and every single detail
+     *
+     * @param sale           receive a sale Headline
+     * @param saleDetailList and every single detail that the customer buy it
+     * @throws SQLException in case of something goes wrong
+     */
     public void registerSale(Sale sale, List<SaleDetail> saleDetailList) throws SQLException {
 
         Connection connection = MySQLConnection.getConnection();
         connection.setAutoCommit(false);
+        int productID;
+        int soldQuantity;
+        boolean productUpdated;
         try {
             Sale newSale = new Sale();
             Optional<Sale> optionalSale = saleDAO.create(sale, connection);
-            newSale.setId(optionalSale.get().getId());
+
+            optionalSale.ifPresent(value -> newSale.setId(value.getId()));
+
             for (SaleDetail saleDetail : saleDetailList) {
                 saleDetail.setSale(newSale);
                 saleDetailDAO.create(saleDetail, connection);
+                productID = saleDetail.getProduct().getId();
+                soldQuantity = saleDetail.getAmount();
+                productUpdated = productDAO.updateStock(productID, soldQuantity, connection);
+                if (!productUpdated) {
+                    throw new SQLException();
+                }
+
             }
 
             connection.commit();
         } catch (SQLException e) {
             connection.rollback();
+            throw e;
         } finally {
             connection.close();
         }
-
-
     }
+
+
 }
