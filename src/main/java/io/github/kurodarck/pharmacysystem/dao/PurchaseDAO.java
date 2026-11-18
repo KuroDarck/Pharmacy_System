@@ -111,10 +111,7 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
     }
 
     /**
-     * Updates a #Purchase in the database by ID.
-     * Returns true if a row was modified, false otherwise.
-     * In this case this method it's going to be created but never developed or used, because in an invoice.
-     * we can't be allowed to make changes
+     * well, we aren't allow t update Purchase in real life
      */
     @Override
     public boolean update(Purchase entity) throws SQLException {
@@ -122,9 +119,7 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
     }
 
     /**
-     * Deactivates a #Purchase in the database by ID (soft delete).
-     * Returns true if a row was modified, false otherwise.
-     * ok let me clarify this you can't delete anything here, because you don't want that the system crash it.
+     * Same here, we aren't allow to delete purchase
      */
     @Override
     public boolean softDelete(Integer dni) throws SQLException {
@@ -132,8 +127,10 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
     }
 
     /**
-     * Retrieves an existing #Purchase from the database by ID.
-     * Returns an Optional with the Purchase if found, or empty otherwise.
+     * With this we can find a specific Purchase
+     * @param id using this specific variable
+     * @return {@link Optional} retrieve a complete object mapped
+     * @throws SQLException in case of problems
      */
     @Override
     public Optional<Purchase> findById(Integer id) throws SQLException {
@@ -150,8 +147,9 @@ public class PurchaseDAO implements CrudDAO<Purchase, Integer> {
     }
 
     /**
-     * Retrieves all existing #Purchase from the database.
-     * Returns a list of existing Purchase, or an empty list if none exist.
+     * This is to list the whole table
+     * @return {@link List} The whole table mapped
+     * @throws SQLException in case of error
      */
     @Override
     public List<Purchase> findAll() throws SQLException {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="CONTROLLER_NAME" >
+    <Label layoutX="376.0" layoutY="10.0" text="Purchase History">
+        <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+        </font>
+    </Label>
+    <TableView fx:id="busssinesPurcchaseReportTable" layoutX="50.0" layoutY="64.0" prefHeight="200.0" prefWidth="900.0">
+        <columns>
+            <TableColumn prefWidth="163.0" text="Invoice" />
+            <TableColumn prefWidth="292.0" text="Supplier" />
+            <TableColumn prefWidth="206.0" text="Total" />
+            <TableColumn prefWidth="238.0" text="Purchase Date" />
+        </columns>
+    </TableView>
+    <Label layoutX="407.0" layoutY="276.0" text="Sales History">
+        <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+        </font>
+    </Label>
+    <TableView fx:id="busssinesSalesReportTable" layoutX="50.0" layoutY="327.0" prefHeight="200.0" prefWidth="900.0">
+        <columns>
+            <TableColumn prefWidth="163.0" text="Invoice" />
+            <TableColumn prefWidth="292.0" text="Client" />
+            <TableColumn prefWidth="206.0" text="Total" />
+            <TableColumn prefWidth="238.0" text="Sale Date" />
+        </columns>
+    </TableView>
+</AnchorPane>

@@ -1,0 +1,41 @@
+/* ==========================================
+   ESTILOS GENERALES PARA FORMULARIOS
+   Fecha de actualización: Noviembre 2026
+   ========================================== */
+
+.form-card {
+    -fx-background-color: #F3F4F6;
+}
+
+.tab-background {
+    -fxbackground-color: #98CAF0;
+}
+
+/* ==========================================
+   FUENTES O TIPOGRAFÍA
+   ========================================== */
+
+.segoe-bold-14 {
+    -fx-font-family: "Segoe Print";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+    /* Botón estilo Bootstrap Primary */
+
+/* ==========================================
+   BOTONES O ACCIONADORES
+   ========================================== */
+    .button-primary {
+        -fx-background-color: #0d6efd; /* Azul clásico de Bootstrap */
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-background-radius: 4px; /* Bordes ligeramente redondeados */
+        -fx-cursor: hand;
+        -fx-padding: 8px 16px;
+    }
+
+    /* Efecto cuando pasas el mouse por encima (Hover) */
+
+    .button-primary:hover {
+        -fx-background-color: #0b5ed7; /* Azul un poco más oscuro */
+    }

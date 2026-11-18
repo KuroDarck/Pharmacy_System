@@ -1,0 +1,100 @@
+/* ==========================================
+   STYLES FOR THE IMAGE / LEFT PANEL
+   ========================================== */
+
+.side-image {
+    /* A subtle brightness/opacity filter so it doesn't compete with the form */
+    -fx-opacity: 0.85;
+}
+
+/* ==========================================
+   1. RIGHT PANEL (Background with a soft lavender tone for contrast)
+   ========================================== */
+.custom-pane {
+    -fx-background-radius: 0px;
+    -fx-background-color: #19151e; /* Carbon black with a very subtle violet undertone */
+    -fx-border-color: #2e2438;
+    -fx-border-width: 0px 0px 0px 2px;
+}
+
+/* ==========================================
+   2. TITLE AND LABELS (Tones optimised for legibility)
+   ========================================== */
+.title-label {
+    -fx-font-family: "Segoe UI"; /* Or Segoe Print if you prefer the original */
+    -fx-font-size: 36.0;
+    -fx-font-weight: bold;
+
+    /* The text core should be near white or an ultra-light lavender to look as if it's glowing */
+    -fx-text-fill: #f3e8ff;
+
+    /* Neon light effect with multiple drop shadow layers */
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.8), 2, 0, 0, 0),   /* Intense, close inner glow */
+    dropshadow(three-pass-box, rgba(189, 136, 244, 0.5), 10, 0, 0, 0),  /* Medium glow */
+    dropshadow(three-pass-box, rgba(126, 66, 189, 0.3), 20, 0, 0, 0);  /* Diffuse outer aura */
+}
+
+.form-label {
+    -fx-font-family: "Segoe UI";
+    -fx-alignment: center-left;
+    -fx-font-size: 16.0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e4d9f2; /* White with a soft lavender touch for maximum readability */
+}
+
+
+/* ==========================================
+   UNIFIED STYLE FOR INPUTS AND PASSWORD FIELDS
+   ========================================== */
+
+.input-field {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14.0;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #999999;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-width: 1px;
+    -fx-padding: 6px 10px; /* Slightly more internal padding for greater comfort */
+    -fx-border-color: rgba(189, 136, 244, 0.4); /* Clean and unique translucent purple border */
+}
+
+/* State when the user clicks inside the input to type */
+.input-field:focused {
+    -fx-border-color: #bd88f4; /* Becomes a more defined solid purple */
+    -fx-border-width: 1.5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.3), 6, 0, 0, 0); /* Subtle modern glow */
+}
+
+
+/* ==========================================
+   MAIN BUTTON WITH STATES
+   ========================================== */
+
+.button-primary {
+    -fx-pref-height: 40.0;
+    -fx-pref-width: 110.0;
+    -fx-font-family: "Segoe UI"; /* Or Segoe Print if preferred */
+    -fx-font-size: 14.0;
+    -fx-font-weight: bold;
+    -fx-background-color: #bd88f4;
+    -fx-text-fill: #19151e;
+    -fx-alignment: CENTER;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.2), 5, 0, 0, 2);
+}
+
+/* Mouse-over effect */
+.button-primary:hover {
+    -fx-background-color: #cb9ff7;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.6), 10, 0, 0, 3);
+}
+
+/* Click effect (Pressed) */
+.button-primary:pressed {
+    -fx-background-color: #a76ee8; /* A darker shade */
+    -fx-translate-y: 1px; /* Small physical downward movement */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 3, 0, 0, 1);
+}

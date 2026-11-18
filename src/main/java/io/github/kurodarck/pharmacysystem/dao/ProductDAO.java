@@ -143,11 +143,33 @@ public class ProductDAO implements CrudDAO<Product, Integer> {
      * @return {@link Boolean} It's gonna be used to check if the chane were made it
      * @throws SQLException In case of something goes wrong
      */
-    public boolean updateStock(Integer productID, Integer soldQuantity, Connection connection) throws SQLException {
+    public boolean updateStockSele(Integer productID, Integer soldQuantity, Connection connection) throws SQLException {
         String query = "UPDATE products SET  product_quantity = product_quantity-?, updated = ? WHERE id = ?";
         final int rowAffect;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, soldQuantity);
+            LocalDateTime dateNow = LocalDateTime.now();
+            preparedStatement.setTimestamp(2, Timestamp.valueOf(dateNow));
+            preparedStatement.setInt(3, productID);
+            rowAffect = preparedStatement.executeUpdate();
+        }
+        return rowAffect > 0;
+    }
+
+    /**
+     * This is Overloading method, that It's going to be used by the Purchase service to update amount of Product
+     *
+     * @param productID    receive the Product ID
+     * @param purchaseQuantity and the Quantity
+     * @param connection   and a created Connection
+     * @return {@link Boolean} It's gonna be used to check if the chane were made it
+     * @throws SQLException In case of something goes wrong
+     */
+    public boolean updateStockPurchase(Integer productID, Integer purchaseQuantity, Connection connection) throws SQLException {
+        String query = "UPDATE products SET  product_quantity = product_quantity+?, updated = ? WHERE id = ?";
+        final int rowAffect;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, purchaseQuantity);
             LocalDateTime dateNow = LocalDateTime.now();
             preparedStatement.setTimestamp(2, Timestamp.valueOf(dateNow));
             preparedStatement.setInt(3, productID);

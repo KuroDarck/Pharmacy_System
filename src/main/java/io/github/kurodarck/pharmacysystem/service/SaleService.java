@@ -34,12 +34,16 @@ public class SaleService {
      */
     public void registerSale(Sale sale, List<SaleDetail> saleDetailList) throws SQLException {
 
-        Connection connection = MySQLConnection.getConnection();
-        connection.setAutoCommit(false);
         int productID;
         int soldQuantity;
         boolean productUpdated;
+
+        Connection connection = null;
+
         try {
+            connection = MySQLConnection.getConnection();
+            connection.setAutoCommit(false);
+
             Sale newSale = new Sale();
             Optional<Sale> optionalSale = saleDAO.create(sale, connection);
 
@@ -50,21 +54,23 @@ public class SaleService {
                 saleDetailDAO.create(saleDetail, connection);
                 productID = saleDetail.getProduct().getId();
                 soldQuantity = saleDetail.getAmount();
-                productUpdated = productDAO.updateStock(productID, soldQuantity, connection);
+                productUpdated = productDAO.updateStockSele(productID, soldQuantity, connection);
                 if (!productUpdated) {
-                    throw new SQLException();
+                    throw new SQLException("Error: No se pudo actualizar el stock del producto ID: " + productID);
                 }
 
             }
 
             connection.commit();
         } catch (SQLException e) {
-            connection.rollback();
+            if (connection != null) {
+                connection.rollback();
+            }
             throw e;
         } finally {
-            connection.close();
+            if (connection != null) {
+                connection.close();
+            }
         }
     }
-
-
 }

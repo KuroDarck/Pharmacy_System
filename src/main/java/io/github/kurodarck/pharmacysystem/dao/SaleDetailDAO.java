@@ -32,20 +32,6 @@ public class SaleDetailDAO implements CrudDAO<SaleDetail, Integer> {
         return saleDetail;
     }
 
-    /**
-     * Checks if an existing #Sale_Detail exists in the database by Name.
-     * Returns true if found, false otherwise.
-     */
-    private boolean existById(int id) throws SQLException {
-        String query = "SELECT 1 FROM sale_details WHERE id = ?";
-        try (Connection connection = MySQLConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, id);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                return resultSet.next();
-            }
-        }
-    }
-
 
     @Override
     public Optional<SaleDetail> create(SaleDetail entity) throws SQLException {
@@ -74,7 +60,7 @@ public class SaleDetailDAO implements CrudDAO<SaleDetail, Integer> {
 
     /**
      * This is Overloading method
-     * @param entity
+     * @param entity this is the object that we're gonna use
      * @param connection we receive an active connection
      * @return {@link SaleDetail}
      * @throws SQLException

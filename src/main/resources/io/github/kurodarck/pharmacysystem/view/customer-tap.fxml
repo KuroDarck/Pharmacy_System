@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="CONTROLLER_NAME">
+
+    <Pane layoutX="35.0" layoutY="20.0" prefHeight="250.0" prefWidth="920.0" style="-fx-background-color: #F3F4F6;">
+
+        <Label layoutX="38.0" layoutY="60.0" prefHeight="30.0" text="User ID">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="120.0" prefHeight="30.0" text="Full Name">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="180.0" prefHeight="30.0" text="Address">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+        <Label layoutX="420.0" layoutY="60.0" prefHeight="30.0" text="Telephone">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+        <Label layoutX="420.0" layoutY="120.0" prefHeight="30.0" text="Email">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="userIDCustomer" layoutX="130.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0"/>
+        <TextField fx:id="fullNameCustomer" layoutX="130.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0"/>
+        <TextField fx:id="addressCustomer" layoutX="130.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0"/>
+        <TextField fx:id="telephoneCustomer" layoutX="520.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0"/>
+        <TextField fx:id="emailCustomer" layoutX="520.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0"/>
+        <Button fx:id="singUpCustomer" layoutX="817.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0"
+                prefWidth="65.0" text="Sing Up">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="updateCustomer" layoutX="817.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0"
+                prefWidth="65.0" text="Update">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="deleteCustomer" layoutX="817.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0"
+                prefWidth="65.0" text="Delete">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="cancelCustomer" layoutX="817.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0"
+                prefWidth="65.0" text="Cancel">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Label layoutX="3.0" layoutY="3.0" prefHeight="22.0" prefWidth="63.0" text="Customer">
+            <font>
+                <Font name="Segoe Print Bold" size="12.0"/>
+            </font>
+        </Label>
+    </Pane>
+    <TextField fx:id="searchCustomer" layoutX="125.0" layoutY="295.0" prefHeight="30.0" prefWidth="200.0"/>
+    <Label layoutX="54.0" layoutY="301.0" text="Search:">
+        <font>
+            <Font name="Segoe Print Bold" size="12.0"/>
+        </font>
+    </Label>
+    <TableView fx:id="CustomerTable" layoutX="35.0" layoutY="355.0" prefHeight="158.0" prefWidth="920.0">
+        <columns>
+            <TableColumn fx:id="userName" prefWidth="168.0" text="USER NAME"/>
+            <TableColumn prefWidth="183.0" text="ADDRESS"/>
+            <TableColumn prefWidth="234.0" text="TELEHONE"/>
+            <TableColumn prefWidth="243.0" text="EMAIL"/>
+            <TableColumn prefWidth="91.0" text="USER ID"/>
+        </columns>
+    </TableView>
+</AnchorPane>
