@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.EmployeeController">
+    <!-- View header with clean spacing above the form card -->
+    <Label layoutX="40.0" layoutY="14.0" styleClass="section-title" text="Employee"/>
+
+    <!-- Card container grouping employee details, credentials and buttons -->
+    <Pane layoutX="40.0" layoutY="50.0" prefHeight="256.0" prefWidth="928.0" styleClass="card">
+        <!-- Left column: employee ID, name, username and role -->
+        <Label layoutX="24.0" layoutY="20.0" prefHeight="36.0" prefWidth="115.0" styleClass="form-label"
+               text="Employee ID:"/>
+        <TextField fx:id="idEmployee" layoutX="144.0" layoutY="20.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Employee ID..."/>
+
+        <Label layoutX="24.0" layoutY="72.0" prefHeight="36.0" prefWidth="115.0" styleClass="form-label"
+               text="Full Name:"/>
+        <TextField fx:id="fullNameEmloyee" layoutX="144.0" layoutY="72.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Full name..."/>
+
+        <Label layoutX="24.0" layoutY="124.0" prefHeight="36.0" prefWidth="115.0" styleClass="form-label"
+               text="User Name:"/>
+        <TextField fx:id="userNameEmployee" layoutX="144.0" layoutY="124.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Username..."/>
+
+        <Label layoutX="24.0" layoutY="176.0" prefHeight="36.0" prefWidth="115.0" styleClass="form-label"
+               text="Role:"/>
+        <ChoiceBox fx:id="rolEmployee" layoutX="144.0" layoutY="176.0" prefHeight="36.0" prefWidth="215.0"
+                   styleClass="combo-box"/>
+
+        <!-- Middle column: address, telephone, email and password -->
+        <Label layoutX="392.0" layoutY="20.0" prefHeight="36.0" prefWidth="110.0" styleClass="form-label"
+               text="Address:"/>
+        <TextField fx:id="addressEmployee" layoutX="506.0" layoutY="20.0" prefHeight="36.0" prefWidth="236.0"
+                   promptText="Street address..."/>
+
+        <Label layoutX="392.0" layoutY="72.0" prefHeight="36.0" prefWidth="110.0" styleClass="form-label"
+               text="Telephone:"/>
+        <TextField fx:id="telephoneEmployee" editable="false" layoutX="506.0" layoutY="72.0" prefHeight="36.0"
+                   prefWidth="236.0" promptText="Phone number..."/>
+
+        <Label layoutX="392.0" layoutY="124.0" prefHeight="36.0" prefWidth="110.0" styleClass="form-label"
+               text="Email:"/>
+        <TextField fx:id="emailEmployee" editable="false" layoutX="506.0" layoutY="124.0" prefHeight="36.0"
+                   prefWidth="236.0" promptText="employee@example.com"/>
+
+        <Label layoutX="392.0" layoutY="176.0" prefHeight="36.0" prefWidth="110.0" styleClass="form-label"
+               text="Password:"/>
+        <PasswordField fx:id="passwordEmployee" layoutX="506.0" layoutY="176.0" prefHeight="36.0" prefWidth="236.0"
+                       promptText="Password..."/>
+
+        <!-- Right column: action buttons neatly stacked with even gaps -->
+        <Button fx:id="singUpEmpployee" layoutX="776.0" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Sing Up"/>
+        <Button fx:id="upDateEmployee" layoutX="776.0" layoutY="72.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Update"/>
+        <Button fx:id="deletEmployee" layoutX="776.0" layoutY="124.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Remove"/>
+        <Button fx:id="cancelEmployee" layoutX="776.0" layoutY="176.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Cancel"/>
+    </Pane>
+
+    <!-- Search filter placed right above the employee table -->
+    <Label layoutX="40.0" layoutY="324.0" prefHeight="36.0" prefWidth="70.0" styleClass="form-label" text="Search:"/>
+    <TextField fx:id="searchEmployee" layoutX="114.0" layoutY="324.0" prefHeight="36.0" prefWidth="280.0"
+               promptText="Search employee..."/>
+
+    <!-- Employee table aligned with the card above -->
+    <TableView fx:id="employeeTable" layoutX="40.0" layoutY="372.0" prefHeight="186.0" prefWidth="928.0">
+        <columns>
+            <TableColumn prefWidth="80.0" text="ID"/>
+            <TableColumn prefWidth="140.0" text="NAME"/>
+            <TableColumn prefWidth="130.0" text="USER NAME"/>
+            <TableColumn prefWidth="140.0" text="ADDRESS "/>
+            <TableColumn prefWidth="125.0" text="TELEPHONE"/>
+            <TableColumn minWidth="130.0" prefWidth="178.0" text="EMAIL"/>
+            <TableColumn prefWidth="125.0" text="ROL"/>
+        </columns>
+    </TableView>
+</AnchorPane>

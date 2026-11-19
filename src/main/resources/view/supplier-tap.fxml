@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kurodarck.pharmacysystem.controller.SupplierController">
+    <children>
+        <!-- View header with clean spacing above the form card -->
+        <Label layoutX="40.0" layoutY="16.0" styleClass="section-title" text="Supplier" />
+
+        <!-- Card container grouping supplier fields and action buttons -->
+        <Pane layoutX="40.0" layoutY="54.0" prefHeight="258.0" prefWidth="928.0" styleClass="card">
+            <!-- Left column: contact details -->
+            <Label layoutX="24.0" layoutY="20.0" prefHeight="36.0" prefWidth="100.0" styleClass="form-label"
+                   text="Name:"/>
+            <TextField fx:id="nameSupplier" layoutX="130.0" layoutY="20.0" prefHeight="36.0" prefWidth="240.0"
+                       promptText="Supplier name..."/>
+
+            <Label layoutX="24.0" layoutY="72.0" prefHeight="36.0" prefWidth="100.0" styleClass="form-label"
+                   text="Address:"/>
+            <TextField fx:id="addressSupplier" layoutX="130.0" layoutY="72.0" prefHeight="36.0" prefWidth="240.0"
+                       promptText="Street address..."/>
+
+            <Label layoutX="24.0" layoutY="124.0" prefHeight="36.0" prefWidth="100.0" styleClass="form-label"
+                   text="Telephone:"/>
+            <TextField fx:id="telephoneSupplier" layoutX="130.0" layoutY="124.0" prefHeight="36.0" prefWidth="240.0"
+                       promptText="Phone number..."/>
+
+            <Label layoutX="24.0" layoutY="176.0" prefHeight="36.0" prefWidth="100.0" styleClass="form-label"
+                   text="Email:"/>
+            <TextField fx:id="emailSupplier" layoutX="130.0" layoutY="176.0" prefHeight="36.0" prefWidth="240.0"
+                       promptText="supplier@example.com"/>
+
+            <!-- Middle column: description, city and ID -->
+            <Label layoutX="396.0" layoutY="20.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+                   text="Description:"/>
+            <TextField fx:id="descriptionSupplier" layoutX="506.0" layoutY="20.0" prefHeight="36.0" prefWidth="240.0"
+                       promptText="Notes or products..."/>
+
+            <Label layoutX="396.0" layoutY="72.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+                   text="City:"/>
+            <ChoiceBox fx:id="citySupplier" layoutX="506.0" layoutY="72.0" prefHeight="36.0" prefWidth="240.0"
+                       styleClass="combo-box"/>
+
+            <Label layoutX="396.0" layoutY="124.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+                   text="Supplier ID:"/>
+            <TextField fx:id="SupplierID" editable="false" layoutX="506.0" layoutY="124.0" prefHeight="36.0"
+                       prefWidth="240.0" promptText="Auto ID"/>
+
+            <!-- Right column: CRUD buttons neatly stacked with even gaps -->
+            <Button fx:id="singUpSuppliyer" layoutX="778.0" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0"
+                    prefWidth="122.0" styleClass="button-primary" text="Sing Up"/>
+            <Button fx:id="upDateSuppliyer" layoutX="778.0" layoutY="72.0" mnemonicParsing="false" prefHeight="36.0"
+                    prefWidth="122.0" styleClass="button-primary" text="Update"/>
+            <Button fx:id="deletSuppliyer" layoutX="778.0" layoutY="124.0" mnemonicParsing="false" prefHeight="36.0"
+                    prefWidth="122.0" styleClass="button-primary" text="Remove"/>
+            <Button fx:id="cancelSuppliyer" layoutX="778.0" layoutY="176.0" mnemonicParsing="false" prefHeight="36.0"
+                    prefWidth="122.0" styleClass="button-primary" text="Cancel"/>
+        </Pane>
+
+        <!-- Search filter placed right above the table -->
+        <Label layoutX="40.0" layoutY="326.0" prefHeight="36.0" prefWidth="70.0" styleClass="form-label" text="Search:" />
+        <TextField fx:id="searchSupplier" layoutX="114.0" layoutY="326.0" prefHeight="36.0" prefWidth="280.0" promptText="Search supplier..." />
+
+        <!-- Supplier table aligned with the card and search box -->
+        <TableView fx:id="tableSupplier" layoutX="40.0" layoutY="374.0" prefHeight="184.0" prefWidth="928.0">
+            <columns>
+                <TableColumn prefWidth="80.0" text="ID" />
+                <TableColumn prefWidth="135.0" text="NAME" />
+                <TableColumn prefWidth="140.0" text="DESCRIPTION" />
+                <TableColumn prefWidth="140.0" text="ADDRESS " />
+                <TableColumn prefWidth="125.0" text="TELEPHONE" />
+                <TableColumn minWidth="130.0" prefWidth="175.0" text="EMAIL" />
+                <TableColumn prefWidth="136.0" text="CITY" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

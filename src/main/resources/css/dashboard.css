@@ -1,41 +1,250 @@
-/* ==========================================
-   ESTILOS GENERALES PARA FORMULARIOS
-   Fecha de actualización: Noviembre 2026
-   ========================================== */
+/* ==========================================================================
+   DASHBOARD & SYSTEM STYLES - NEON THEME
+   ========================================================================== */
 
-.form-card {
-    -fx-background-color: #F3F4F6;
+/* Main root and background panels */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-.tab-background {
-    -fxbackground-color: #98CAF0;
+/* General background panels so it is not bright white */
+.custom-pane, .pane {
+    -fx-background-color: #19151e;
 }
 
-/* ==========================================
-   FUENTES O TIPOGRAFÍA
-   ========================================== */
+/* Cards and form boxes inside views, dark colour so there is no harsh white */
+.card, .form-container {
+    -fx-background-color: #19151e;
+    -fx-background-radius: 8px;
+    -fx-border-color: #3b304c;
+    -fx-border-radius: 8px;
+}
 
-.segoe-bold-14 {
-    -fx-font-family: "Segoe Print";
+/* Side bar and top bar */
+.sidebar, .top-bar {
+    -fx-background-color: #121929;
+}
+
+/* ==========================================================================
+   BRAND ICON GLOW
+   ========================================================================== */
+
+/* Nice purple-ish glow on the pharmacy icon */
+.brand-icon, #IconPharmacy {
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.7), 16, 0.25, 0, 0);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & TITLES
+   ========================================================================== */
+.title-label {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3e8ff;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.85), 14, 0.4, 0, 0);
+}
+
+/* Making the screen title stand out clearly above the card */
+.section-title, .view-title {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3e8ff;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.45), 8, 0.25, 0, 0);
+}
+
+/* Labels next to inputs, easier to read on dark background */
+.form-label {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-alignment: center-left;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
+    -fx-text-fill: #e4d9f2;
 }
-    /* Botón estilo Bootstrap Primary */
 
-/* ==========================================
-   BOTONES O ACCIONADORES
-   ========================================== */
-    .button-primary {
-        -fx-background-color: #0d6efd; /* Azul clásico de Bootstrap */
-        -fx-text-fill: white;
-        -fx-font-weight: bold;
-        -fx-background-radius: 4px; /* Bordes ligeramente redondeados */
-        -fx-cursor: hand;
-        -fx-padding: 8px 16px;
-    }
+/* ==========================================================================
+   INPUT FIELDS (TextField & PasswordField)
+   ========================================================================== */
+.text-field, .password-field {
+    -fx-background-color: #231e2d;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #8b7d9b;
+    -fx-background-radius: 6px;
+    -fx-border-color: #3b304c;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 14px;
+    -fx-padding: 6px 10px;
+    -fx-pref-height: 36px; /* Fixed height so it does not shrink weirdly */
+}
 
-    /* Efecto cuando pasas el mouse por encima (Hover) */
+.text-field:focused, .password-field:focused {
+    -fx-background-color: #2b233a;
+    -fx-border-color: #bd88f4;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.5), 10, 0.4, 0, 0);
+    -fx-scale-x: 1.02; /* Grows a little bit when clicked */
+    -fx-scale-y: 1.02;
+}
 
-    .button-primary:hover {
-        -fx-background-color: #0b5ed7; /* Azul un poco más oscuro */
-    }
+/* ==========================================================================
+   COMBO BOX CUSTOM STYLING (Dark & Neon Theme)
+   ========================================================================== */
+
+/* Main combo box */
+.combo-box {
+    -fx-background-color: #231e2d;
+    -fx-background-radius: 6px;
+    -fx-border-color: #3b304c;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1.5px;
+    -fx-pref-height: 36px;
+}
+
+/* When you click inside the combo box */
+.combo-box:focused {
+    -fx-background-color: #2b233a;
+    -fx-border-color: #bd88f4;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.5), 10, 0.4, 0, 0);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Text inside the combo box */
+.combo-box .list-cell {
+    -fx-background-color: #231e2d;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+
+/* Little box around the arrow */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* Colour of the little arrow */
+.combo-box .arrow {
+    -fx-background-color: #bd88f4;
+}
+
+/* Drop-down list when opened */
+.combo-box-popup .list-view {
+    -fx-background-color: #19151e;
+    -fx-border-color: #bd88f4;
+    -fx-border-radius: 6px;
+}
+
+/* Options inside the drop-down list */
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #19151e;
+    -fx-text-fill: #e4d9f2;
+    -fx-padding: 8px 12px;
+}
+
+/* Hovering an option in the list */
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #2b233a;
+    -fx-text-fill: #ffffff;
+}
+
+/* Chosen option in the list */
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #bd88f4;
+    -fx-text-fill: #121929;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   PRIMARY BUTTONS
+   ========================================================================== */
+.button, .button-primary {
+    -fx-background-color: #bd88f4;
+    -fx-text-fill: #121929;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.button:hover, .button-primary:hover {
+    -fx-background-color: #cda2f6;
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.6), 10, 0.4, 0, 0);
+}
+
+.button:pressed, .button-primary:pressed {
+    -fx-background-color: #a86ee0;
+}
+
+/* ==========================================================================
+   TABLE VIEW & CARDS
+   ========================================================================== */
+.table-view {
+    -fx-background-color: #19151e;
+    -fx-border-color: #3b304c;
+    -fx-border-radius: 6px;
+}
+
+/* Top part of the table where column names sit */
+.table-view .column-header-background {
+    -fx-background-color: #121929;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f3e8ff;
+    -fx-font-weight: bold;
+}
+
+/* Column header text in JavaFX TableView sits inside a label node */
+.table-view .column-header .label {
+    -fx-text-fill: #f3e8ff;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+/* Table rows */
+.table-row-cell {
+    -fx-background-color: #19151e;
+    -fx-text-fill: #e4d9f2;
+}
+
+/* Every second row a bit lighter so it is easier to follow */
+.table-row-cell:even {
+    -fx-background-color: #1c1723;
+}
+
+/* Selected row in the table */
+.table-row-cell:selected {
+    -fx-background-color: #bd88f4;
+    -fx-text-fill: #121929;
+}
+
+/* ==========================================================================
+   SIDEBAR MENU ITEMS & ICON SPACING
+   ========================================================================== */
+
+/* Giving some breathing room so icons are not squished on the left edge */
+.sidebar .label {
+    -fx-padding: 6px 10px 6px 14px;
+    -fx-graphic-text-gap: 10px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e4d9f2;
+    -fx-background-radius: 6px;
+}
+
+/* Highlighting the row a bit when hovering over a menu option */
+.sidebar .label:hover {
+    -fx-background-color: #19151e;
+    -fx-text-fill: #f3e8ff;
+}
+
+/* Trying a soft glow on the icon when the mouse hovers the item */
+.sidebar .label:hover .image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(189, 136, 244, 0.35), 8, 0.2, 0, 0);
+}

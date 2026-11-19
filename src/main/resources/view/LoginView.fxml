@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="LoginView" accessibleText="480" prefHeight="415.0" prefWidth="930.0"
-            stylesheets="@../../../../../css/login.css" xmlns="http://javafx.com/javafx/17.0.12"
+            stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="io.github.kurodarck.pharmacysystem.controller.LoginController">
     <Pane prefHeight="420.0" prefWidth="490.0" styleClass="custom-pane">
         <ImageView fitHeight="460.0" fitWidth="700.0" layoutX="-80.0" layoutY="-20.0" pickOnBounds="true"
                    preserveRatio="true" styleClass="side-image">
-            <Image url="@../../../../../Image/wallpaper.jpg"/>
+            <Image url="@../Image/wallpaper.jpg"/>
         </ImageView>
     </Pane>
     <Pane layoutX="440.0" prefHeight="420.0" prefWidth="490.0" styleClass="custom-pane">

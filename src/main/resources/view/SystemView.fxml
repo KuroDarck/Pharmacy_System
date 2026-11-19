@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="systemView" prefHeight="680.0" prefWidth="1208.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kurodarck.pharmacysystem.controller.SystemViewController">
+
+    <!-- Pharmacy icon in the top-left corner -->
+    <Pane fx:id="Logo" prefHeight="101.0" prefWidth="200.0" styleClass="sidebar">
+        <ImageView fx:id="IconPharmacy" fitHeight="101.0" fitWidth="106.0" layoutX="42.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Image/farmaciaIcon.png" />
+        </ImageView>
+    </Pane>
+
+    <!-- Top bar with the pharmacy name, user photo and exit button -->
+    <Pane layoutX="200.0" prefHeight="101.0" prefWidth="1008.0" styleClass="top-bar">
+        <Label id="viewTitle" layoutX="46.0" prefHeight="100.0" prefWidth="520.0" styleClass="title-label" stylesheets="@../css/dashboard.css" text="NATURAL LIFE PHARMACY" />
+        <Button fx:id="UserPhoto" layoutX="760.0" layoutY="18.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" style="-fx-background-color: #231e2d; -fx-border-color: #bd88f4; -fx-border-radius: 8;">
+            <graphic>
+                <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../Image/man.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="exitBotton" layoutX="870.0" layoutY="32.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="90.0" styleClass="button-primary" text="Exit" />
+    </Pane>
+
+    <!-- Side menu on the left so I can switch views easily -->
+    <Pane layoutY="100.0" prefHeight="580.0" prefWidth="200.0" styleClass="sidebar">
+        <Pane fx:id="Product" layoutY="10.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelProduct" onMouseClicked="#onProductClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Product">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Image/box.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Purchace" layoutY="68.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelPurchace" onMouseClicked="#onPurchaseClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Purchase">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Image/purchase.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Sales" layoutY="126.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="Labelsales" onMouseClicked="#onSalesClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Sales">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../Image/sales.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Customer" layoutY="184.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelCustomer" onMouseClicked="#onCustomerClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Customer">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/customer.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Emproyee" layoutY="242.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelEmproyee" onMouseClicked="#onEmployeeClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Employee">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/employee.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Suplayer" layoutY="300.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelSuplayer" onMouseClicked="#onSupplierClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Supplier">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/supplier.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Category" layoutY="358.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelCategory" onMouseClicked="#onCategoryClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Category">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/categories.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Report" layoutY="416.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelReport" onMouseClicked="#onReportClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Business Report">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/business-report.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+        <Pane fx:id="Setting" layoutY="474.0" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar">
+            <Label fx:id="LabelSetting" onMouseClicked="#onProfileClick" onMouseEntered="#onMenuMouseEntered" onMouseExited="#onMenuMouseExited" prefHeight="35.0" prefWidth="200.0" style="-fx-cursor: hand;" text="Profile">
+                <graphic>
+                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../Image/settings.png" />
+                    </ImageView>
+                </graphic>
+            </Label>
+        </Pane>
+    </Pane>
+
+    <!-- Main area where each tab view gets loaded dynamically -->
+    <StackPane fx:id="contentArea" alignment="CENTER_LEFT" layoutX="200.0" layoutY="100.0" prefHeight="580.0" prefWidth="1008.0" stylesheets="@../css/dashboard.css" />
+
+</AnchorPane>

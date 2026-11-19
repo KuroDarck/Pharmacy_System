@@ -12,9 +12,9 @@ import java.util.Objects;
 public class pharmacyApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(pharmacyApplication.class.getResource("/io/github/kurodarck/pharmacysystem/view/LoginView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(pharmacyApplication.class.getResource("/view/LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Image/icon.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Image/farmaciaIcon.png"))));
         stage.setTitle("Pharmacy System");
         stage.setResizable(false);
         stage.setScene(scene);

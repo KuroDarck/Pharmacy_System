@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.BusinessReportController">
+    <children>
+        <!-- Top section header aligned on the left like the other views -->
+        <Label layoutX="40.0" layoutY="18.0" styleClass="section-title" text="Purchase History"/>
+
+        <!-- Card wrapping the purchase report table with even margins -->
+        <Pane layoutX="40.0" layoutY="54.0" prefHeight="226.0" prefWidth="928.0" styleClass="card">
+            <TableView fx:id="busssinesPurcchaseReportTable" layoutX="14.0" layoutY="14.0" prefHeight="198.0"
+                       prefWidth="900.0">
+                <columns>
+                    <TableColumn prefWidth="163.0" text="Invoice"/>
+                    <TableColumn prefWidth="292.0" text="Supplier"/>
+                    <TableColumn prefWidth="206.0" text="Total"/>
+                    <TableColumn prefWidth="236.0" text="Purchase Date"/>
+                </columns>
+            </TableView>
+        </Pane>
+
+        <!-- Bottom section header for the sales report table -->
+        <Label layoutX="40.0" layoutY="292.0" styleClass="section-title" text="Sales History"/>
+
+        <!-- Card wrapping the sales report table with even margins -->
+        <Pane layoutX="40.0" layoutY="328.0" prefHeight="226.0" prefWidth="928.0" styleClass="card">
+            <TableView fx:id="busssinesSalesReportTable" layoutX="14.0" layoutY="14.0" prefHeight="198.0"
+                       prefWidth="900.0">
+                <columns>
+                    <TableColumn prefWidth="163.0" text="Invoice"/>
+                    <TableColumn prefWidth="292.0" text="Client"/>
+                    <TableColumn prefWidth="206.0" text="Total"/>
+                    <TableColumn prefWidth="236.0" text="Sale Date"/>
+                </columns>
+            </TableView>
+        </Pane>
+    </children>
+</AnchorPane>

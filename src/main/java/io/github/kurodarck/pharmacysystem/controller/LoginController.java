@@ -30,12 +30,9 @@ public class LoginController {
     @FXML
     public Button Submit;
 
-    private String userName;
-    private String password;
-
     public void OnSubmitButtonClick(ActionEvent onMouseEvent) {
-        userName = text_UserName.getText().trim();
-        password = txt_password.getText();
+        String userName = text_UserName.getText().trim();
+        String password = txt_password.getText();
         if (userName.isEmpty() || password.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Completed Data");
@@ -56,7 +53,7 @@ public class LoginController {
                     alert.showAndWait();
                     txt_password.requestFocus();
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/io/github/kurodarck/pharmacysystem/view/SystemView.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SystemView.fxml"));
                     Parent root = loader.load();
                     SystemViewController systemViewController = loader.getController();
                     systemViewController.setEmployee(employee.orElse(null));

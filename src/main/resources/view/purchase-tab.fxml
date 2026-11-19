@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.PurchaseController">
+    <!-- Main title for the purchase screen -->
+    <Label layoutX="40.0" layoutY="14.0" styleClass="section-title" text="New Purchase"/>
+
+    <!-- Card container grouping purchase fields and buttons -->
+    <Pane layoutX="40.0" layoutY="50.0" prefHeight="296.0" prefWidth="928.0" styleClass="card">
+        <!-- Row 1: product code and purchase price -->
+        <Label layoutX="24.0" layoutY="18.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Product Code:"/>
+        <TextField fx:id="purchaseProductCode" layoutX="148.0" layoutY="18.0" prefHeight="36.0" prefWidth="202.0"
+                   promptText="Product code..."/>
+
+        <Label layoutX="382.0" layoutY="18.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Purchase Price:"/>
+        <TextField fx:id="purchasePrice" layoutX="506.0" layoutY="18.0" prefHeight="36.0" prefWidth="236.0"
+                   promptText="0.00"/>
+
+        <!-- Row 2: product name and subtotal -->
+        <Label layoutX="24.0" layoutY="68.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Product Name:"/>
+        <TextField fx:id="purchaseProductName" layoutX="148.0" layoutY="68.0" prefHeight="36.0" prefWidth="202.0"
+                   promptText="Product name..."/>
+
+        <Label layoutX="382.0" layoutY="68.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="SubTotal:"/>
+        <TextField fx:id="purchaseSubtotal" editable="false" layoutX="506.0" layoutY="68.0" prefHeight="36.0"
+                   prefWidth="236.0" promptText="0.00"/>
+
+        <!-- Row 3: quantity/amount and purchase ID -->
+        <Label layoutX="24.0" layoutY="118.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Amount:"/>
+        <TextField fx:id="purchaseAmount" layoutX="148.0" layoutY="118.0" prefHeight="36.0" prefWidth="202.0"
+                   promptText="Quantity..."/>
+
+        <Label layoutX="382.0" layoutY="118.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="ID:"/>
+        <TextField fx:id="purchaseID" editable="false" layoutX="506.0" layoutY="118.0" prefHeight="36.0"
+                   prefWidth="236.0" promptText="Auto ID"/>
+
+        <!-- Row 4: supplier and total due -->
+        <Label layoutX="24.0" layoutY="168.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Supplier:"/>
+        <TextField fx:id="supplierPurchase" layoutX="148.0" layoutY="168.0" prefHeight="36.0" prefWidth="202.0"
+                   promptText="Supplier..."/>
+
+        <Label layoutX="382.0" layoutY="168.0" prefHeight="36.0" prefWidth="120.0" styleClass="form-label"
+               text="Total Due:"/>
+        <TextField fx:id="PurchaseTotalDue" editable="false" layoutX="506.0" layoutY="168.0" prefHeight="36.0"
+                   prefWidth="236.0" promptText="0.00"/>
+
+        <!-- Action buttons stacked neatly on the right side of the card -->
+        <Button fx:id="addPurchasebutton" layoutX="776.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="ADD"/>
+        <Button fx:id="buyPurchasebutton" layoutX="776.0" layoutY="68.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="BUY"/>
+        <Button fx:id="deletPurchasebutton" layoutX="776.0" layoutY="118.0" mnemonicParsing="false"
+                prefHeight="36.0" prefWidth="124.0" styleClass="button-primary" text="DELETE"/>
+        <Button fx:id="newPurchaseButton" layoutX="776.0" layoutY="168.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="NEW"/>
+    </Pane>
+
+    <!-- Table showing items added to the current purchase -->
+    <TableView fx:id="purchaseTable" layoutX="40.0" layoutY="362.0" prefHeight="196.0" prefWidth="928.0">
+        <columns>
+            <TableColumn prefWidth="95.0" text="ID"/>
+            <TableColumn prefWidth="195.0" text="PRODUCT NAME"/>
+            <TableColumn prefWidth="150.0" text="AMOUNT"/>
+            <TableColumn prefWidth="155.0" text="PRICE"/>
+            <TableColumn prefWidth="145.0" text="SUBTOTAL"/>
+            <TableColumn prefWidth="186.0" text="SUPPLIER"/>
+        </columns>
+    </TableView>
+</AnchorPane>

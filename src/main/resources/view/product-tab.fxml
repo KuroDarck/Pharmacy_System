@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.ProductController">
+    <!-- Main heading for the products view -->
+    <Label layoutX="40.0" layoutY="14.0" styleClass="section-title" text="Products"/>
+
+    <!-- Card container grouping product fields, category selector and buttons -->
+    <Pane layoutX="40.0" layoutY="50.0" prefHeight="242.0" prefWidth="928.0" styleClass="card">
+        <!-- Left column: code, name and price -->
+        <Label layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="72.0" styleClass="form-label"
+               text="Code:"/>
+        <TextField fx:id="codeProduct" layoutX="100.0" layoutY="22.0" prefHeight="36.0" prefWidth="240.0"
+                   promptText="Product code..."/>
+
+        <Label layoutX="24.0" layoutY="84.0" prefHeight="36.0" prefWidth="72.0" styleClass="form-label"
+               text="Name:"/>
+        <TextField fx:id="nameProduct" layoutX="100.0" layoutY="84.0" prefHeight="36.0" prefWidth="240.0"
+                   promptText="Product name..."/>
+
+        <Label layoutX="24.0" layoutY="146.0" prefHeight="36.0" prefWidth="72.0" styleClass="form-label"
+               text="Price:"/>
+        <TextField fx:id="priceProduct" layoutX="100.0" layoutY="146.0" prefHeight="36.0" prefWidth="240.0"
+                   promptText="0.00"/>
+
+        <!-- Middle column: description, category and auto ID -->
+        <Label layoutX="372.0" layoutY="22.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Description:"/>
+        <TextField fx:id="descriptionProduct" layoutX="482.0" layoutY="22.0" prefHeight="36.0" prefWidth="250.0"
+                   promptText="Product details..."/>
+
+        <Label layoutX="372.0" layoutY="84.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Category:"/>
+        <ChoiceBox fx:id="CategoryProduct" layoutX="482.0" layoutY="84.0" prefHeight="36.0" prefWidth="250.0"
+                   styleClass="combo-box"/>
+
+        <Label layoutX="372.0" layoutY="146.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="ID:"/>
+        <TextField fx:id="idProduct" editable="false" layoutX="482.0" layoutY="146.0" prefHeight="36.0"
+                   prefWidth="250.0" promptText="Auto ID"/>
+
+        <!-- Right column: action buttons neatly aligned with each row -->
+        <Button fx:id="saveProduct" layoutX="776.0" layoutY="22.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Save"/>
+        <Button fx:id="updateProduct" layoutX="776.0" layoutY="68.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Update"/>
+        <Button fx:id="removeProduct" layoutX="776.0" layoutY="114.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Remove"/>
+        <Button fx:id="cancelProduct" layoutX="776.0" layoutY="160.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Cancel"/>
+    </Pane>
+
+    <!-- Search filter placed right above the product table -->
+    <Label layoutX="40.0" layoutY="308.0" prefHeight="36.0" prefWidth="70.0" styleClass="form-label" text="Search:"/>
+    <TextField fx:id="searchProduct" layoutX="114.0" layoutY="308.0" prefHeight="36.0" prefWidth="280.0"
+               promptText="Search product..."/>
+
+    <!-- Product list table aligned with the card above -->
+    <TableView fx:id="tableProduct" layoutX="40.0" layoutY="356.0" prefHeight="202.0" prefWidth="928.0">
+        <columns>
+            <TableColumn prefWidth="110.0" text="ID"/>
+            <TableColumn minWidth="0.0" prefWidth="130.0" text="CODE"/>
+            <TableColumn prefWidth="150.0" text="PRICE"/>
+            <TableColumn prefWidth="150.0" text="AMOUNT"/>
+            <TableColumn prefWidth="168.0" text="CATEGORY"/>
+            <TableColumn minWidth="0.0" prefWidth="218.0" text="NAME"/>
+        </columns>
+    </TableView>
+</AnchorPane>

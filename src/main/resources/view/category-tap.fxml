@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.CategoryController">
+    <!-- Main section title with a bit of breathing room from the edges -->
+    <Label layoutX="40.0" layoutY="20.0" styleClass="section-title" text="Category"/>
+
+    <!-- Top card for the form inputs and action buttons -->
+    <Pane layoutX="40.0" layoutY="62.0" prefHeight="155.0" prefWidth="928.0" styleClass="card">
+        <!-- ID field (kept read-only) -->
+        <Label layoutX="24.0" layoutY="24.0" prefHeight="36.0" prefWidth="40.0" styleClass="form-label" text="ID:"/>
+        <TextField fx:id="idCategory" editable="false" layoutX="68.0" layoutY="24.0" prefHeight="36.0"
+                   prefWidth="220.0" promptText="Auto ID"/>
+
+        <!-- Category name field -->
+        <Label layoutX="328.0" layoutY="24.0" prefHeight="36.0" prefWidth="60.0" styleClass="form-label"
+               text="Name:"/>
+        <TextField fx:id="nameCategory" layoutX="392.0" layoutY="24.0" prefHeight="36.0" prefWidth="510.0"
+                   promptText="Enter category name..."/>
+
+        <!-- Action buttons grouped neatly together instead of spread all over -->
+        <Button fx:id="singUpCategory" layoutX="68.0" layoutY="88.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="115.0" styleClass="button-primary" text="Sign In"/>
+        <Button fx:id="updateCategory" layoutX="197.0" layoutY="88.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="115.0" styleClass="button-primary" text="Update"/>
+        <Button fx:id="deleteCategory" layoutX="326.0" layoutY="88.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="115.0" styleClass="button-primary" text="Delete"/>
+        <Button fx:id="cancelCategory" layoutX="455.0" layoutY="88.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="115.0" styleClass="button-primary" text="Cancel"/>
+    </Pane>
+
+    <!-- Search bar lined up right above the table -->
+    <Label layoutX="40.0" layoutY="242.0" prefHeight="36.0" prefWidth="65.0" styleClass="form-label" text="Search:"/>
+    <TextField fx:id="searchCategory" layoutX="108.0" layoutY="242.0" prefHeight="36.0" prefWidth="320.0"
+               promptText="Filter by name or ID..."/>
+
+    <!-- Category list table aligned with the card above -->
+    <TableView fx:id="categoryTable" layoutX="40.0" layoutY="292.0" prefHeight="258.0" prefWidth="928.0">
+        <columns>
+            <TableColumn prefWidth="160.0" text="ID"/>
+            <TableColumn prefWidth="766.0" text="NAME"/>
+        </columns>
+    </TableView>
+</AnchorPane>

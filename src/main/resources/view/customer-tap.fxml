@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1008.0" styleClass="custom-pane" stylesheets="@../css/dashboard.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.kurodarck.pharmacysystem.controller.CustomerController">
+    <!-- View header with comfortable spacing above the customer card -->
+    <Label layoutX="40.0" layoutY="14.0" styleClass="section-title" text="Customer"/>
+
+    <!-- Card container grouping customer details and action buttons -->
+    <Pane layoutX="40.0" layoutY="50.0" prefHeight="242.0" prefWidth="928.0" styleClass="card">
+        <!-- Left column: customer ID, full name and address -->
+        <Label layoutX="24.0" layoutY="22.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="User ID:"/>
+        <TextField fx:id="userIDCustomer" layoutX="134.0" layoutY="22.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Customer ID..."/>
+
+        <Label layoutX="24.0" layoutY="84.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Full Name:"/>
+        <TextField fx:id="fullNameCustomer" layoutX="134.0" layoutY="84.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Full name..."/>
+
+        <Label layoutX="24.0" layoutY="146.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Address:"/>
+        <TextField fx:id="addressCustomer" layoutX="134.0" layoutY="146.0" prefHeight="36.0" prefWidth="215.0"
+                   promptText="Street address..."/>
+
+        <!-- Middle column: telephone and email -->
+        <Label layoutX="382.0" layoutY="22.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Telephone:"/>
+        <TextField fx:id="telephoneCustomer" layoutX="492.0" layoutY="22.0" prefHeight="36.0" prefWidth="240.0"
+                   promptText="Phone number..."/>
+
+        <Label layoutX="382.0" layoutY="84.0" prefHeight="36.0" prefWidth="105.0" styleClass="form-label"
+               text="Email:"/>
+        <TextField fx:id="emailCustomer" layoutX="492.0" layoutY="84.0" prefHeight="36.0" prefWidth="240.0"
+                   promptText="customer@example.com"/>
+
+        <!-- Right column: CRUD buttons neatly aligned with each row -->
+        <Button fx:id="singUpCustomer" layoutX="776.0" layoutY="22.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Sing Up"/>
+        <Button fx:id="updateCustomer" layoutX="776.0" layoutY="68.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Update"/>
+        <Button fx:id="deleteCustomer" layoutX="776.0" layoutY="114.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Delete"/>
+        <Button fx:id="cancelCustomer" layoutX="776.0" layoutY="160.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="124.0" styleClass="button-primary" text="Cancel"/>
+    </Pane>
+
+    <!-- Search input positioned right above the customer table -->
+    <Label layoutX="40.0" layoutY="308.0" prefHeight="36.0" prefWidth="70.0" styleClass="form-label" text="Search:"/>
+    <TextField fx:id="searchCustomer" layoutX="114.0" layoutY="308.0" prefHeight="36.0" prefWidth="280.0"
+               promptText="Search customer..."/>
+
+    <!-- Customer table aligned with the card above -->
+    <TableView fx:id="CustomerTable" layoutX="40.0" layoutY="356.0" prefHeight="202.0" prefWidth="928.0">
+        <columns>
+            <TableColumn fx:id="userName" prefWidth="185.0" text="USER NAME"/>
+            <TableColumn prefWidth="195.0" text="ADDRESS"/>
+            <TableColumn prefWidth="210.0" text="TELEHONE"/>
+            <TableColumn prefWidth="230.0" text="EMAIL"/>
+            <TableColumn prefWidth="108.0" text="USER ID"/>
+        </columns>
+    </TableView>
+</AnchorPane>
